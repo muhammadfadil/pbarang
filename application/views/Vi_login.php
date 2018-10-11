@@ -49,22 +49,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <h3 class="panel-title">Please Sign In</h3>
                     </div>
                     <div class="panel-body">
-                        <form role="form">
+                        <form action="<?php echo base_url('login/login_validation'); ?>" method="post">
                             <fieldset>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Username" name="username" type="username" autofocus>
+                                    <input class="form-control" placeholder="Username" name="username" type="username" autofocus required>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                                    <input class="form-control" placeholder="Password" name="password" type="password" value="" required>
                                 </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input name="remember" type="checkbox" value="Remember Me">Remember Me
-                                    </label>
-                                </div>
+                                
                                 <!-- Change this to a button or input when using this as a form -->
-                                <a href="<?php echo base_url('assets/pages/index.html')?>" class="btn btn-lg btn-success btn-block">Login</a>
-                                <!-- <input class="btn btn-lg btn-success btn-block name="submit" type="submit" value="login" > -->
+                               <!-- <a href="<?php echo base_url('assets/pages/index.html')?>" class="btn btn-lg btn-success btn-block">Login</a> -->
+                               
+                              <input class="btn btn-lg btn-success btn-block name="submit" type="submit" value="Login" >
 
                             </fieldset>
                         </form>
