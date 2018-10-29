@@ -120,7 +120,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <li><i class="menu-icon fa fa-paper-plane"></i><a href="pages-forget.html">Forget Pass</a></li>	
                         </ul>
 					<li class="active">
-						<a href="<?php echo base_url('welcome/index')?>"> <i class="menu-icon fa fa fa-sign-out"></i>	Logout</a>
+						<a href="<?php echo base_url('login/keluar')?>"> <i class="menu-icon fa fa fa-sign-out"></i>	Logout</a>
 					</li>
                     
 					</li>
