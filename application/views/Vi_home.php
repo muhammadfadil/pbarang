@@ -42,14 +42,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="./"><img src="images/logo.png" alt="Logo"></a>
-                <a class="navbar-brand hidden" href="./"><img src="images/logo2.png" alt="Logo"></a>
+                <a class="navbar-brand" href="./"><img src="<?php echo base_url('assets/images/logokominfo.png');?>" alt="Logo"></a>
+                <a class="navbar-brand hidden" href="./"><img src="<?php echo base_url('assets/images/logo2kom.png');?>" alt="Logo"></a>
             </div>
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active">
-                        <a href="index.html"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
+                        <a href="<?php echo base_url('login/kehome')?>"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
                     </li>
                     <h3 class="menu-title">UI elements</h3><!-- /.menu-title -->
                     <li class="menu-item-has-children dropdown">
@@ -117,9 +117,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="menu-icon fa fa-sign-in"></i><a href="page-login.html">Login</a></li>
                             <li><i class="menu-icon fa fa-sign-in"></i><a href="page-register.html">Register</a></li>
-                            <li><i class="menu-icon fa fa-paper-plane"></i><a href="pages-forget.html">Forget Pass</a></li>
+                            <li><i class="menu-icon fa fa-paper-plane"></i><a href="pages-forget.html">Forget Pass</a></li>	
                         </ul>
-                    </li>
+					<li class="active">
+						<a href="<?php echo base_url('welcome/index')?>"> <i class="menu-icon fa fa fa-sign-out"></i>	Logout</a>
+					</li>
+                    
+					</li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </nav>
@@ -662,19 +666,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     <!-- Right Panel -->
 
-    <script src="assets/js/vendor/jquery-2.1.4.min.js"></script>
+    <script src="<?php echo base_url('assets/js/vendor/jquery-2.1.4.min.js');?>"</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
-    <script src="assets/js/plugins.js"></script>
-    <script src="assets/js/main.js"></script>
-
-
-    <script src="assets/js/lib/chart-js/Chart.bundle.js"></script>
-    <script src="assets/js/dashboard.js"></script>
-    <script src="assets/js/widgets.js"></script>
-    <script src="assets/js/lib/vector-map/jquery.vmap.js"></script>
-    <script src="assets/js/lib/vector-map/jquery.vmap.min.js"></script>
-    <script src="assets/js/lib/vector-map/jquery.vmap.sampledata.js"></script>
-    <script src="assets/js/lib/vector-map/country/jquery.vmap.world.js"></script>
+    <script src="<?php echo base_url('assets/js/plugins.js');?>"></script>
+    <script src="<?php echo base_url('assets/js/main.js');?>"></script>
+    <script src="<?php echo base_url('assets/js/lib/chart-js/Chart.bundle.js');?>"></script>
+    <script src="<?php echo base_url('assets/js/dashboard.js');?>"></script>
+    <script src="<?php echo base_url('assets/js/widgets.js')?>"></script>
+    <script src="<?php echo base_url('assets/js/lib/vector-map/jquery.vmap.js');?>"></script>
+    <script src="<?php echo base_url('assets/js/lib/vector-map/jquery.vmap.min.js');?>"></script>
+    <script src="<?php echo base_url('assets/js/lib/vector-map/jquery.vmap.sampledata.js');?>"></script>
+    <script src="<?php echo base_url('assets/js/lib/vector-map/country/jquery.vmap.world.js');?>"></script>
     <script>
         ( function ( $ ) {
             "use strict";

@@ -13,25 +13,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="apple-touch-icon" href="apple-icon.png">
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" href="<?php echo base_url('assets/css/normalize.css')?>">
+   
     <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.min.css')?>">
-    <link rel="stylesheet" href="<?php echo base_url('assets/css/font-awesome.min.css')?>">
-    <link rel="stylesheet" href="<?php echo base_url('assets/css/themify-icons.css')?>">
-    <link rel="stylesheet" href="<?php echo base_url('assets/css/flag-icon.min.css')?>">
-    <link rel="stylesheet" href="<?php echo base_url('assets/css/cs-skin-elastic.css')?>">
-    <!-- <link rel="stylesheet" href="assets/css/bootstrap-select.less"> -->
     <link rel="stylesheet" href="<?php echo base_url('assets/scss/style.css')?>">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
-
+    
+	
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 </head>
 
-<body style="background-image:url('assets/prusahaan.jpg');background-repeat:no-repeat;background-size:100% 100vh">
+<body>
 
-
-    <div class="sufee-login d-flex align-content-center flex-wrap" >
+	<div class="sufee-login d-flex align-content-center flex-wrap" >
+	
         <div class="container">
+		
             <div class="login-content">
                 <div class="login-form">
+				<!-- <img src="<?php echo base_url('assets/prusahaan.jpg') ?> "> -->
                     <form action="<?php echo base_url('login/login_validation'); ?>" method="post">
                         <fieldset>
 						<div class="form-group">
@@ -52,10 +50,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </div>
 
 
-    <script src="assets/js/vendor/jquery-2.1.4.min.js"></script>
-    <script src="assets/js/popper.min.js"></script>
-    <script src="assets/js/plugins.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="<?php echo base_url('assets/js/vendor/jquery-2.1.4.min.js');?>"></script>
+    <script src="<?php echo base_url('assets/js/popper.min.js');?>"></script>
+    <script src="<?php echo base_url('assets/js/plugins.js');?>"></script>
+    <script src="<?php echo base_url('assets/js/main.js');?>"></script>
 
 
 </body>
