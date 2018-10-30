@@ -74,13 +74,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     
 					</li>
                 </ul>
-            </div><!-- /.navbar-collapse -->
+            </div>
         </nav>
-    </aside><!-- /#left-panel -->
+    </aside>
 
-    <!-- Left Panel -->
 
-    <!-- Right Panel -->
+
+
+
 
     <div id="right-panel" class="right-panel">
 
@@ -96,6 +97,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </div>           
         </header><!-- /header -->
         <!-- Header-->
+<!-- TABEL-->
+        <div class="content mt-3">
+            <div class="animated fadeIn">
+                <div class="row">
+
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">Daftar Barang</strong>
+                        </div>
+                        <div class="card-body">
+                  <table id="bootstrap-data-table" class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                        <th>Kode Barang</th>
+                        <th>Nama Barang</th>
+                        <th>Merk/Type</th>
+                        <th>No Seri</th>
+                        <th>Kondisi Barang</th>
+                        <th>Unit</th>
+                        </tr>       
+                    </thead>
+                    <tbody>
+                  
+                    </tbody>
+                </table>
 
      
 

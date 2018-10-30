@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.7.1
+-- version 4.2.11
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 29 Okt 2018 pada 12.45
--- Versi Server: 5.6.20
--- PHP Version: 5.5.15
+-- Generation Time: Oct 30, 2018 at 06:21 AM
+-- Server version: 5.6.21
+-- PHP Version: 5.6.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -23,7 +23,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_login`
+-- Table structure for table `tbl_login`
 --
 
 CREATE TABLE IF NOT EXISTS `tbl_login` (
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `tbl_login` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tbl_login`
+-- Dumping data for table `tbl_login`
 --
 
 INSERT INTO `tbl_login` (`id`, `username`, `password`) VALUES
@@ -42,24 +42,37 @@ INSERT INTO `tbl_login` (`id`, `username`, `password`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_barang`
+-- Table structure for table `tbl_pinjambarang`
+--
+
+CREATE TABLE IF NOT EXISTS `tbl_pinjambarang` (
+  `id_pb` int(11) NOT NULL,
+  `no_spt` varchar(20) NOT NULL,
+  `tanggal` date NOT NULL,
+  `barang` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_barang`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_barang` (
 `id_barang` int(11) NOT NULL,
   `kode_barang` varchar(50) DEFAULT NULL,
   `nama_barang` varchar(50) NOT NULL,
-  `merk/type` varchar(50) NOT NULL,
+  `merk` varchar(50) NOT NULL,
   `no_seri` varchar(50) DEFAULT NULL,
   `kondisi_barang` varchar(50) NOT NULL,
   `unit` int(11) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_barang`
+-- Dumping data for table `tb_barang`
 --
 
-INSERT INTO `tb_barang` (`id_barang`, `kode_barang`, `nama_barang`, `merk/type`, `no_seri`, `kondisi_barang`, `unit`) VALUES
+INSERT INTO `tb_barang` (`id_barang`, `kode_barang`, `nama_barang`, `merk`, `no_seri`, `kondisi_barang`, `unit`) VALUES
 (1, '30303010437-', 'spektrum analyzer', 'anritsu ms 2720t', '1536028', 'baik', 1),
 (2, '3060324005', 'antena dipole', 'anritsu mp534b', '', 'baik', 1),
 (3, NULL, 'gps garmin', 'montana 680', '30303010726', 'baik', 1),
@@ -74,6 +87,12 @@ INSERT INTO `tb_barang` (`id_barang`, `kode_barang`, `nama_barang`, `merk/type`,
 --
 ALTER TABLE `tbl_login`
  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tbl_pinjambarang`
+--
+ALTER TABLE `tbl_pinjambarang`
+ ADD PRIMARY KEY (`id_pb`);
 
 --
 -- Indexes for table `tb_barang`
