@@ -10,9 +10,6 @@
 			$this->load->view("Vi_login");
 
 		}
-		function kehome(){
-			$this->load->view("Vi_home");
-		}
 		function login_validation()
 		{
 			$username = $this->input->post('username');
@@ -34,7 +31,7 @@
 			redirect(base_url("admin"));
  
 			}else{
-				echo "Username dan password salah !";
+				echo "<script>alert('Username dan password salah!');history.go(-1);</script>";
 			}
 		}
 		function keluar()

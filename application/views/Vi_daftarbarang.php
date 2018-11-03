@@ -52,10 +52,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 
                 <ul class="nav navbar-nav">
                     <h3 class="menu-title">Menu</h3><!-- /.menu-title -->
-                    <li class="active">
-                        <a href="<?php echo base_url('login/kehome')?>"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
+                    <li>
+                        <a href="<?php echo base_url('admin/index')?>"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
                     </li>
-                    <li class="active">
+                    <li>
                         <a href="<?php echo base_url('crudpinjambarang/kepinjambarang')?>"> <i class="menu-icon fa fa-file-o"></i>Form Peminjaman</a>
                     </li>
                     <li class="active">
@@ -68,7 +68,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <li><i class="menu-icon fa fa-sign-in"></i><a href="page-register.html">Register</a></li>
                             <li><i class="menu-icon fa fa-paper-plane"></i><a href="pages-forget.html">Forget Pass</a></li>	
                         </ul>
-					<li class="active">
+					<li>
 						<a href="<?php echo base_url('login/keluar')?>"> <i class="menu-icon fa fa fa-sign-out"></i>	Logout</a>
 					</li>
                     
