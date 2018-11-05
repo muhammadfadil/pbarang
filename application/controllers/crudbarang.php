@@ -10,6 +10,6 @@ class Crudbarang extends CI_Controller{
 	}
 	function kebarang(){
 		$data['tb_barang'] = $this->mo_barang->tampil_data()->result();
-		$this->load->view('Vi_daftarbarang');
+		$this->load->view('Vi_daftarbarang', $data);
 	}
 }

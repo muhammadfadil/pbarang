@@ -117,7 +117,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <th>No Seri</th>
                         <th>Kondisi Barang</th>
                         <th>Unit</th>
-                        </tr>       
+                        </tr>
+						<?php 
+						foreach($tb_barang as $br){ 
+						?>
+						<tr>
+						<td><?php echo $br->kode_barang ?></td>
+						<td><?php echo $br->nama_barang ?></td>
+						<td><?php echo $br->merk ?></td>
+						<td><?php echo $br->no_seri ?></td>
+						<td><?php echo $br->kondisi_barang ?></td>
+						<td><?php echo $br->unit ?></td>
+						</tr>
+						<?php } ?>
                     </thead>
                     <tbody>
                   
