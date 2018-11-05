@@ -4,7 +4,7 @@
 		
 		function __construct(){
 			parent::__construct();
-			$this->load->model('mo_login');
+			$this->load->model('Mo_login');
 		}
 		function masuk(){
 			$this->load->view("Vi_login");
@@ -18,7 +18,7 @@
 			'username' => $username,
 			'password' => $password
 			);
-			$cek = $this->mo_login->cek_login("tbl_login",$where)->num_rows();
+			$cek = $this->Mo_login->cek_login("tbl_login",$where)->num_rows();
 			if($cek > 0){
  
 			$data_session = array(
@@ -28,7 +28,7 @@
  
 			$this->session->set_userdata($data_session);
  
-			redirect(base_url("admin"));
+			redirect('/admin');
  
 			}else{
 				echo "<script>alert('Username dan password salah!');history.go(-1);</script>";
@@ -37,6 +37,6 @@
 		function keluar()
 		{
 			$this->session->sess_destroy();
-			redirect(base_url().'login/masuk');
+			redirect('Login/masuk');
 		}
 	}

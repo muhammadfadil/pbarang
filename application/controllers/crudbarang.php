@@ -6,10 +6,10 @@ class Crudbarang extends CI_Controller{
 		parent::__construct();
                 $this->load->model('mo_barang');
 		if($this->session->userdata('status') != "login"){
-			redirect(base_url("login/masuk"));}
+			redirect(site_url("Login/masuk"));}
 	}
 	function kebarang(){
 		$data['tb_barang'] = $this->mo_barang->tampil_data()->result();
-		$this->load->view('vi_daftarbarang');
+		$this->load->view('Vi_daftarbarang');
 	}
 }

@@ -37,7 +37,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="card-header">Form Login</div>
                 <div class="login-form">
 				<!-- <img src="<?php echo base_url('assets/prusahaan.jpg') ?> "> -->
-                    <form action="<?php echo base_url('login/login_validation'); ?>" method="post">
+                    <form action="<?php echo site_url('login/login_validation'); ?>" method="post">
                         
 						<div class="form-group">
 							<div class="input-group">
