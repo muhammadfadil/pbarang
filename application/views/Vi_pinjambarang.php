@@ -13,8 +13,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta name="description" content="Sufee Admin - HTML5 Admin Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="apple-touch-icon" href="apple-icon.png">
-    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="shortcut icon" href="<?php echo base_url('assets/images/logosc.png')?>">
 
     <link rel="stylesheet" href="<?php echo base_url('assets/css/normalize.css')?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.min.css')?>">
@@ -60,7 +59,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </li>
                     <li>
                         <a href="<?php echo site_url('Crudbarang/kebarang')?>"> <i class="menu-icon fa fa-tasks"></i>Daftar Barang</a>
-                  
+                    </li>
+                    <!-- <li class="menu-item-has-children dropdown"> -->
+                        <!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-glass"></i>Pages</a> -->
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="menu-icon fa fa-sign-in"></i><a href="page-login.html">Login</a></li>
+                            <li><i class="menu-icon fa fa-sign-in"></i><a href="page-register.html">Register</a></li>
+                            <li><i class="menu-icon fa fa-paper-plane"></i><a href="pages-forget.html">Forget Pass</a></li>	
+                        </ul>
+					<li>
 						<a href="<?php echo site_url('Login/keluar')?>"> <i class="menu-icon fa fa fa-sign-out"></i>	Logout</a>
 					</li>
                     
@@ -96,36 +103,80 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       </div>
                       <div class="card-body card-block">
                         <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
-                          
                           <div class="row form-group">
                             <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nomor SPT</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="Nomor SPT" class="form-control"></div>
+                            <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="Text" class="form-control"><small class="form-text text-muted">Nomor Surat Perintah Tugas</small></div>
                           </div>
-
-                          <div class="row form-group">
+						  <div class="row form-group">
                             <div class="col col-md-3"><label for="text-input" class=" form-control-label">Tanggal</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="Tanggal" class="form-control"></div>
+                            <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="Text" class="form-control"><small class="form-text text-muted">Tanggal peminjaman</small></div>
                           </div>
-
-
+						  <div class="row form-group">
+                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nama 1</label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="Text" class="form-control"><small class="form-text text-muted">Ketua Pelaksana</small></div>
+                          </div>
+						  <div class="row form-group">
+                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nama 2</label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="Text" class="form-control"><small class="form-text text-muted">Wakil Ketua Pelaksana</small></div>
+                          </div>
+						  <div class="row form-group">
+                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nama 3</label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="Text" class="form-control"><small class="form-text text-muted">Petugas</small></div>
+                          </div>
                           <div class="row form-group">
-                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Barang</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="Barang" class="form-control"></div>
+                            <div class="col col-md-3"><label for="select" class=" form-control-label">Barang</label></div>
+                            <div class="col-12 col-md-9">
+                              <select name="select" id="select" class="form-control">
+                                <option value="0">Pilih Barang</option>
+                                <option value="1">Barang 1</option>
+                                <option value="2">Barang 2</option>
+                                <option value="3">Barang 3</option>
+                              </select>
+                            </div>
                           </div>
-
-
+                        
                           <div class="row form-group">
+                           
+                            <div class="col col-md-9">
+                            
+                            </div>
                           </div>
-                          
-                          
-                          
-                        
-                        
                         </form>
                       </div>
+					  <div class="content mt-3">
+            <div class="animated fadeIn">
+                <div class="row">
+
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">Barang Pilihan</strong>
+                        </div>
+                        <div class="card-body">
+                  <table id="bootstrap-data-table" class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                        <th>Kode Barang</th>
+                        <th>Nama Barang</th>
+                        <th>Merk/Type</th>
+                        <th>No Seri</th>
+                        <th>Kondisi Barang</th>
+                        <th>Unit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                  
+                    </tbody>
+                </table>
+						</div>
+					</div>
+				</div>
+				</div>
+			</div>
+		</div>
                       <div class="card-footer">
                         <button type="submit" class="btn btn-primary btn-sm">
-                          <i class="fa fa-dot-circle-o"></i> Submit
+                          <i class="fa fa-dot-circle-o"></i> Simpan
                         </button>
                         <button type="reset" class="btn btn-danger btn-sm">
                           <i class="fa fa-ban"></i> Reset

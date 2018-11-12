@@ -11,8 +11,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <title>Login</title>
     <meta name="description" content="Sufee Admin - HTML5 Admin Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="apple-touch-icon" href="apple-icon.png">
-    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="shortcut icon" href="<?php echo base_url('assets/images/logosc.png')?>">
    
     <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.min.css')?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/scss/style.css')?>">
