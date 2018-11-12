@@ -54,19 +54,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <li>
                         <a href="<?php echo site_url('Admin/index')?>"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
                     </li>
-                    <li class="active">
-                        <a href="<?php echo site_url('Crudpinjambarang/kepinjambarang')?>"> <i class="menu-icon fa fa-file-o"></i>Form Peminjaman</a>
-                    </li>
                     <li>
                         <a href="<?php echo site_url('Crudbarang/kebarang')?>"> <i class="menu-icon fa fa-tasks"></i>Daftar Barang</a>
                     </li>
-                    <!-- <li class="menu-item-has-children dropdown"> -->
-                        <!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-glass"></i>Pages</a> -->
-                        <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-sign-in"></i><a href="page-login.html">Login</a></li>
-                            <li><i class="menu-icon fa fa-sign-in"></i><a href="page-register.html">Register</a></li>
-                            <li><i class="menu-icon fa fa-paper-plane"></i><a href="pages-forget.html">Forget Pass</a></li>	
-                        </ul>
+                    <li class="active">
+                        <a href="<?php echo site_url('Crudpinjambarang/kepinjambarang')?>"> <i class="menu-icon fa fa-file-o"></i>Form Peminjaman</a>
+                    </li>
+					<li>
+                        <a href="<?php echo site_url('#')?>"> <i class="menu-icon fa fa-print"></i>Laporan Peminjaman</a>
+                    </li>
 					<li>
 						<a href="<?php echo site_url('Login/keluar')?>"> <i class="menu-icon fa fa fa-sign-out"></i>	Logout</a>
 					</li>
@@ -105,32 +101,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
                           <div class="row form-group">
                             <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nomor SPT</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="Text" class="form-control"><small class="form-text text-muted">Nomor Surat Perintah Tugas</small></div>
+                            <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="Nomor Surat Perintah Tugas" class="form-control"></div>
                           </div>
 						  <div class="row form-group">
                             <div class="col col-md-3"><label for="text-input" class=" form-control-label">Tanggal</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="Text" class="form-control"><small class="form-text text-muted">Tanggal peminjaman</small></div>
+                            <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="Tanggal peminjaman" class="form-control"></div>
                           </div>
 						  <div class="row form-group">
                             <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nama 1</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="Text" class="form-control"><small class="form-text text-muted">Ketua Pelaksana</small></div>
+                            <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="Ketua Pelaksana" class="form-control"></div>
                           </div>
 						  <div class="row form-group">
                             <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nama 2</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="Text" class="form-control"><small class="form-text text-muted">Wakil Ketua Pelaksana</small></div>
+                            <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="Wakil Ketua Pelaksana" class="form-control"></div>
                           </div>
 						  <div class="row form-group">
                             <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nama 3</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="Text" class="form-control"><small class="form-text text-muted">Petugas</small></div>
+                            <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="Petugas" class="form-control"></div>
                           </div>
                           <div class="row form-group">
                             <div class="col col-md-3"><label for="select" class=" form-control-label">Barang</label></div>
                             <div class="col-12 col-md-9">
                               <select name="select" id="select" class="form-control">
-                                <option value="0">Pilih Barang</option>
-                                <option value="1">Barang 1</option>
-                                <option value="2">Barang 2</option>
-                                <option value="3">Barang 3</option>
+                                <?php foreach($tb_barang as $row) { ?>
+								<option value="<?php echo $row->nama_barang ?>"><?php echo $row->nama_barang ?></option>
+								<?php } ?>
                               </select>
                             </div>
                           </div>

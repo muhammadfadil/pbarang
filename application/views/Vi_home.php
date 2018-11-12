@@ -10,7 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Peminjaman Barang</title>
-    <meta name="description" content="Sufee Admin - HTML5 Admin Template">
+    <meta name="description" content="Peminjaman Barang">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="shortcut icon" href="<?php echo base_url('assets/images/logosc.png')?>">
@@ -22,7 +22,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link rel="stylesheet" href="<?php echo base_url('assets/css/flag-icon.min.css')?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/cs-skin-elastic.css')?>">
     <!-- <link rel="stylesheet" href="assets/css/bootstrap-select.less"> -->
-    <link rel="stylesheet" href="<?php echo base_url('assets/scss/style.css')?>">
+    <link rel="stylesheet" href="<?php echo base_url('assets/scss/style2.css')?>">
     <link href="<?php echo base_url('assets/css/lib/vector-map/jqvmap.min.css')?>" rel="stylesheet">
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
@@ -43,8 +43,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="#"><img src="<?php echo base_url('assets/images/logokominfo.png');?>" alt="Logo"></a>
-                <a class="navbar-brand hidden" href="#"><img src="<?php echo base_url('assets/images/logo2kom.png');?>" alt="Logo"></a>
+                <a class="navbar-brand" href="#"><img src="<?php echo base_url('assets/images/Kemkominfo.png');?>" alt="Logo"></a>
+                <a class="navbar-brand hidden" href="#"><img src="<?php echo base_url('assets/images/logosc.png');?>" alt="Logo"></a>
             </div>
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
@@ -55,18 +55,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <a href="<?php echo site_url('Admin/index')?>"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
                     </li>
                     <li>
-                        <a href="<?php echo site_url('Crudpinjambarang/kepinjambarang')?>"> <i class="menu-icon fa fa-file-o"></i>Form Peminjaman</a>
-                    </li>
-                    <li>
                         <a href="<?php echo site_url('Crudbarang/kebarang')?>"> <i class="menu-icon fa fa-tasks"></i>Daftar Barang</a>
                     </li>
-                    <!-- <li class="menu-item-has-children dropdown"> -->
-                        <!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-glass"></i>Pages</a> -->
-                        <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-sign-in"></i><a href="page-login.html">Login</a></li>
-                            <li><i class="menu-icon fa fa-sign-in"></i><a href="page-register.html">Register</a></li>
-                            <li><i class="menu-icon fa fa-paper-plane"></i><a href="pages-forget.html">Forget Pass</a></li>	
-                        </ul>
+                    <li>
+                        <a href="<?php echo site_url('Crudpinjambarang/kepinjambarang')?>"> <i class="menu-icon fa fa-file-o"></i>Form Peminjaman</a>
+                    </li>
+					<li>
+                        <a href="<?php echo site_url('#')?>"> <i class="menu-icon fa fa-print"></i>Laporan Peminjaman</a>
+                    </li>
 					<li>
 						<a href="<?php echo site_url('Login/keluar')?>"> <i class="menu-icon fa fa fa-sign-out"></i>	Logout</a>
 					</li>
@@ -89,13 +85,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="header-menu">
 
                 <div class="col-sm-7">
-                    <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>
+                    <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-plus"></i></a>
                     <div class="header-left"> 
                     <h3>Dashboard</h3>
                     </div>           
-        </header><!-- /header -->
-        <!-- Header-->
-
+        </header>
+		<div class="container text-center">
+		
+		<a><img src="<?php echo base_url('assets/images/logo_kominfofix.png');?>" ></a>
+		</div>
+		 
      
 
    

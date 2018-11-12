@@ -55,11 +55,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <a href="<?php echo site_url('Admin/index')?>"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
                     </li>
                     <li class="active">
-                        <a href="<?php echo site_url('Crudpinjambarang/kepinjambarang')?>"> <i class="menu-icon fa fa-file-o"></i>Form Peminjaman</a>
+                        <a href="<?php echo site_url('Crudbarang/kebarang')?>"> <i class="menu-icon fa fa-tasks"></i>Daftar Barang</a>
                     </li>
                     <li>
-                        <a href="<?php echo site_url('Crudbarang/kebarang')?>"> <i class="menu-icon fa fa-tasks"></i>Daftar Barang</a>
-                  
+                        <a href="<?php echo site_url('Crudpinjambarang/kepinjambarang')?>"> <i class="menu-icon fa fa-file-o"></i>Form Peminjaman</a>
+                    </li>
+					<li>
+                        <a href="<?php echo site_url('#')?>"> <i class="menu-icon fa fa-print"></i>Laporan Peminjaman</a>
+                    </li>
+					<li>
 						<a href="<?php echo site_url('Login/keluar')?>"> <i class="menu-icon fa fa fa-sign-out"></i>	Logout</a>
 					</li>
                     
@@ -98,22 +102,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                           
                           <div class="row form-group">
                                 <div class="col col-md-3"><label for="kd" class=" form-control-label">Kode Barang</label></div>
-                                <div class="col-12 col-md-9"><input type="text" id="kd" name="kd" placeholder="Kode Barang" class="form-control"></div>
+                                <div class="col-12 col-md-9"><input type="text" id="kd" name="kd" placeholder="Kode Barang" class="form-control" required></div>
                           </div>
 
                           <div class="row form-group">
                                <div class="col col-md-3"><label for="nb" class=" form-control-label">Nama Barang</label></div>
-                               <div class="col-12 col-md-9"><input type="text" id="nb" name="nb" placeholder="Nama Barang" class="form-control"></div>
+                               <div class="col-12 col-md-9"><input type="text" id="nb" name="nb" placeholder="Nama Barang" class="form-control" required></div>
                           </div>
 
                           <div class="row form-group">
                                <div class="col col-md-3"><label for="merk" class=" form-control-label">Merk/Type</label></div>
-                               <div class="col-12 col-md-9"><input type="text" id="merk" name="merk" placeholder="Merk/Type" class="form-control"></div>
+                               <div class="col-12 col-md-9"><input type="text" id="merk" name="merk" placeholder="Merk/Type" class="form-control" required></div>
                           </div>
                           
                           <div class="row form-group">
                                <div class="col col-md-3"><label for="ns" class=" form-control-label">No Seri</label></div>
-                               <div class="col-12 col-md-9"><input type="text" id="ns" name="ns" placeholder="No Seri" class="form-control"></div>       
+                               <div class="col-12 col-md-9"><input type="text" id="ns" name="ns" placeholder="No Seri" class="form-control" required></div>       
                           </div>
                           
                           <div class="row form-group"> <!--dibuat dropdown-->
@@ -122,16 +126,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </div>
                                <div class="col-12 col-md-9">
                                     <select id="kb" class="form-control" name="kb">
-                                    <option value="0">Pilih Kondisi</option>
-                                    <option value="1">Baik</option>
-                                    <option value="2">Sedikit Rusak</option>
+                                    <option value="Baik">Baik</option>
+                                    <option value="Sedikit Rusak">Sedikit Rusak</option>
                                     </select>
                                 </div>
                           </div>
                            
                           <div class="row form-group">
                             <div class="col col-md-3"><label for="unit" class=" form-control-label">Unit</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="unit" name="unit" placeholder="Unit" class="form-control"></div>   
+                            <div class="col-12 col-md-9"><input type="text" id="unit" name="unit" placeholder="Unit" class="form-control" required></div>   
                           </div>
 
                           <div class="row form-group">

@@ -1,7 +1,9 @@
 <?php 
 
 class Mo_pinjambarang extends CI_Model{
-	function tampil_data(){
-		return $this->db->get('tbl_pinjambarang');
+	private $_table = "tb_barang";
+	function tampil_op(){
+		return $this->db->get($this->_table)->result();
 	}
+    
 }

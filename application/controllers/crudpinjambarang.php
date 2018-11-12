@@ -9,7 +9,8 @@ class Crudpinjambarang extends CI_Controller{
 			redirect(site_url("Login/masuk"));}
 	}
 	function kepinjambarang(){
-		$data['tbl_pinjambarang'] = $this->mo_pinjambarang->tampil_data()->result();
-		$this->load->view('Vi_pinjambarang');
+		$data['tb_barang'] = $this->mo_pinjambarang->tampil_op();
+		$this->load->view('Vi_pinjambarang', $data);
 	}
+	
 }

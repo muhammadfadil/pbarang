@@ -6,8 +6,7 @@ class Mo_barang extends CI_Model{
  
 	function tampil_data(){
 		return $this->db->get($this->_table)->result();
-	}
-    
+	} 
     
     function simpan()
     {
