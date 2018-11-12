@@ -55,14 +55,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <li>
                         <a href="<?php echo site_url('Admin/index')?>"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
                     </li>
-                    <li>
+                    <li class="active">
                         <a href="<?php echo site_url('Crudpinjambarang/kepinjambarang')?>"> <i class="menu-icon fa fa-file-o"></i>Form Peminjaman</a>
                     </li>
-                    <li class="active">
+                    <li>
                         <a href="<?php echo site_url('Crudbarang/kebarang')?>"> <i class="menu-icon fa fa-tasks"></i>Daftar Barang</a>
-                    </li>
-                    
-					<li>
+                  
 						<a href="<?php echo site_url('Login/keluar')?>"> <i class="menu-icon fa fa fa-sign-out"></i>	Logout</a>
 					</li>
                     
@@ -91,54 +89,74 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </div>           
         </header><!-- /header -->
         <!-- Header-->
-<!-- TABEL-->
-        <div class="content mt-3">
-            <div class="animated fadeIn">
-                <div class="row">
-
-                <div class="col-md-12">
+<div class="container">
                     <div class="card">
-                        <div class="card-header">
-                            <strong class="card-title">Daftar Barang</strong>
-                        </div>
-                        <div class="card-header">
-                        <a href="<?php echo site_url('crudbarang/add') ?>"><i class="fa fa-pencil"></i> Add New</a>
-                        </div>
+                      <div class="card-header">
+                        <strong>Tambah Barang</strong>
+                      </div>
+                      <div class="card-body card-block">
+                        <form action="<?php base_url('#fungsiadd#') ?>" method="post" enctype="multipart/form-data" class="form-horizontal">
+                          
+                          <div class="row form-group">
+                                <div class="col col-md-3"><label for="text-input" class=" form-control-label">Kode Barang</label></div>
+                                <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="Kode Barang" class="form-control"></div>
+                          </div>
 
-                        <div class="card-body">
-                  <table id="bootstrap-data-table" class="table table-striped table-bordered">
-                    <thead>
-                        <tr>
-                        <th>Kode Barang</th>
-                        <th>Nama Barang</th>
-                        <th>Merk/Type</th>
-                        <th>No Seri</th>
-                        <th>Kondisi Barang</th>
-                        <th>Unit</th>
-                        <th>Action</th>
-                        </tr>
-						<?php 
-						foreach($tb_barang as $br){ 
-						?>
-						<tr>
-						<td><?php echo $br->kode_barang ?></td>
-						<td><?php echo $br->nama_barang ?></td>
-						<td><?php echo $br->merk ?></td>
-						<td><?php echo $br->no_seri ?></td>
-						<td><?php echo $br->kondisi_barang ?></td>
-						<td><?php echo $br->unit ?></td>
-                        <td>
-                            <a href="<?php echo site_url('#'.$br->id_barang) ?>"class="btn btn-small"><i class="fa fa-edit"></i>Edit</a>
-                            <a href="<?php echo site_url('#'.$br->id_barang) ?>"class="btn btn-small"><i class="fa fa-edit"></i>Hapus</a>
-                        </td>
+                          <div class="row form-group">
+                               <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nama Barang</label></div>
+                               <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="Nama Barang" class="form-control"></div>
+                          </div>
 
-						</tr>
-						<?php } ?>
-                    </thead>
-                    <tbody>
-                  
-                    </tbody>
-                </table>
+                          <div class="row form-group">
+                               <div class="col col-md-3"><label for="text-input" class=" form-control-label">Merk/Type</label></div>
+                               <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="Merk/Type" class="form-control"></div>
+                          </div>
+                          
+                          <div class="row form-group">
+                               <div class="col col-md-3"><label for="text-input" class=" form-control-label">No Seri</label></div>
+                               <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="No Seri" class="form-control"></div>       
+                          </div>
+                          
+                          <div class="row form-group"> <!--dibuat dropdown-->
+                            <div class="col col-md-3">
+                               <label class="form-control-label" for="kondisi">Kondisi Barang</label>
+                            </div>
+                               <div class="col-12 col-md-9">
+                                    <select id="select" class="form-control" name="kondisi">
+                                    <option value="0">Pilih Kondisi</option>
+                                    <option value="1">Baik</option>
+                                    <option value="2">Sedikit Rusak</option>
+                                    </select>
+                                </div>
+                          </div>
+                           
+                          <div class="row form-group">
+                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Kode Barang</label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="Kode Barang" class="form-control"></div>   
+                          </div>
+
+                          <div class="row form-group">
+                          </div>
+                          
+                          
+                          
+                        
+                        
+                        </form>
+                      </div>
+                      <div class="card-footer">
+                        <button type="submit" class="btn btn-primary btn-sm">
+                          <i class="fa fa-dot-circle-o"></i> Submit
+                        </button>
+                        <button type="reset" class="btn btn-danger btn-sm">
+                          <i class="fa fa-ban"></i> Reset
+                        </button>
+                      </div>
+                    </div>
+                   
+                     
+                    </div>
+                  </div>
 
      
 
