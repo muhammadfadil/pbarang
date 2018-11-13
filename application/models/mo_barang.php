@@ -45,11 +45,9 @@ class Mo_barang extends CI_Model{
        $this->db->update ('tb_barang',$data);       
     }
     
-    function deletebarang($id)
-    {
-        
+    function hapus_barang($where,$table){
+        $this->db->where($where);
+        $this->db->delete($table);
     }
-    
-   
     
 }

@@ -42,11 +42,11 @@ class Crudbarang extends CI_Controller{
     function updatebarangDb()
     {   
         $id_barang = $this->input->post('id');
-        $kode_barang = $this->input->post('kd');
-        $nama_barang = $this->input->post('nb');
+        $kd = $this->input->post('kd');
+        $nb = $this->input->post('nb');
         $merk = $this->input->post('merk');
-        $no_seri = $this->input->post('ns');
-        $kondisi_barang = $this->input->post('kb');
+        $ns = $this->input->post('ns');
+        $kb = $this->input->post('kb');
         $unit = $this->input->post('unit');
         
         $data = array (
@@ -58,12 +58,20 @@ class Crudbarang extends CI_Controller{
             'unit' => $unit        
             );
         $where = array (
-                    'id_barang'=>$id
+                    'id_barang'=>$id_barang
                         );  
                         
         //$kondisi['id_barang'] = $this->input->post('id_barang');
         $this->mo_barang->updatebarang($where, $data, 'tb_barang');
         redirect('crudbarang/kebarang');
+    }
+
+    function hapus($id)
+    {
+        $where = array ('id_barang'=>$id
+            );
+        $this->mo_barang->hapus_barang($where,'tb_barang');
+        redirect('crudbarang/kebarang');   
     }
 }
 
