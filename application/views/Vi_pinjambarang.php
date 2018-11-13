@@ -28,6 +28,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 
     <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
+	<link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap-datepicker3.css')?>"/>
 
 </head>
 
@@ -44,7 +45,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <i class="fa fa-bars"></i>
                 </button>
                 <a class="navbar-brand"><img src="<?php echo base_url('assets/images/Kemkominfo.png');?>" alt="Logo"></a>
-                <a class="navbar-brand hidden"><img src="<?php echo base_url('assets/images/logo2kom.png');?>" alt="Logo"></a>
+                <a class="navbar-brand hidden" ><img src="<?php echo base_url('assets/images/logo2kom.png');?>" alt="Logo"></a>
             </div>
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
@@ -61,7 +62,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <a href="<?php echo site_url('Crudpinjambarang/kepinjambarang')?>"> <i class="menu-icon fa fa-file-o"></i>Form Peminjaman</a>
                     </li>
 					<li>
-                        <a> <i class="menu-icon fa fa-print"></i>Laporan Peminjaman</a>
+                        <a href="<?php echo site_url('#')?>"> <i class="menu-icon fa fa-print"></i>Laporan Peminjaman</a>
                     </li>
 					<li>
 						<a href="<?php echo site_url('Login/keluar')?>"> <i class="menu-icon fa fa fa-sign-out"></i>	Logout</a>
@@ -92,20 +93,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </div>           
         </header><!-- /header -->
         <!-- Header-->
-<div class="container">
-                    <div class="card">
+		<div class="container">
+			<div class="card">
                       <div class="card-header">
                         <strong>Form Peminjaman</strong>
                       </div>
                       <div class="card-body card-block">
-                        <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+					  <div class="bootstrap-iso">
+                        <form action="action" method="post" enctype="multipart/form-data" class="form-horizontal">
                           <div class="row form-group">
                             <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nomor SPT</label></div>
                             <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="Nomor Surat Perintah Tugas" class="form-control"></div>
                           </div>
 						  <div class="row form-group">
-                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Tanggal</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="Tanggal peminjaman" class="form-control"></div>
+                            <div class="col col-md-3"><label for="tanggal" class=" form-control-label">Tanggal</label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="tanggal" name="tanggal" placeholder="DD/MM/YYYY" class="tanggal"></div>
                           </div>
 						  <div class="row form-group">
                             <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nama 1</label></div>
@@ -124,20 +126,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <div class="col-12 col-md-9">
                               <select name="select" id="select" class="form-control">
                                 <?php foreach($tb_barang as $row) { ?>
-								<option value="<?php echo $row->nama_barang ?>"><?php echo $row->nama_barang ?></option>
+								<option value="<?php echo $row->id_barang ?>"><?php echo $row->nama_barang ?></option>
 								<?php } ?>
                               </select>
                             </div>
                           </div>
-                        
-                          <div class="row form-group">
-                           
-                            <div class="col col-md-9">
-                            
-                            </div>
-                          </div>
-                        </form>
-                      </div>
+						  <div class="row form-group">
+						    <div class="col col-md-3"></div>
+							<div class="col-12 col-md-9">
+							<button type="submit" class="btn btn-primary btn-sm">
+							<i class="fa fa-plus"></i> Tambah
+							</button>
+							</div>
+						  </div>        
 					  <div class="content mt-3">
             <div class="animated fadeIn">
                 <div class="row">
@@ -177,11 +178,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                           <i class="fa fa-ban"></i> Reset
                         </button>
                       </div>
-                    </div>
                    
                      
-                    </div>
-                  </div>
+                    
+					</form>
+					</div>
+					</div>
+			</div>
+		</div>
 
      
 
@@ -214,6 +218,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 normalizeFunction: 'polynomial'
             } );
         } )( jQuery );
+    </script>
+	<script src="<?php echo base_url('assets/js/jquery-3.3.1.min.js');?>"></script>
+	<script src="<?php echo base_url('assets/js/bootstrap.js');?>"></script>
+    <script src="<?php echo base_url('assets/js/bootstrap-datepicker.js');?>"></script>
+    <script>
+        $(document).ready(function () {
+            $('.tanggal').datepicker({
+                format: "dd-mm-yyyy",
+                autoclose:true
+            });
+        });
     </script>
 
 </body>
