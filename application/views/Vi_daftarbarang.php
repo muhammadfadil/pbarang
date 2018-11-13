@@ -61,7 +61,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <a href="<?php echo site_url('Crudpinjambarang/kepinjambarang')?>"> <i class="menu-icon fa fa-file-o"></i>Form Peminjaman</a>
                     </li>
 					<li>
-                        <a> <i class="menu-icon fa fa-print"></i>Laporan Peminjaman</a>
+                        <a href="<?php echo site_url('Laporanbarang/kelaporan')?>"> <i class="menu-icon fa fa-print"></i>Laporan Peminjaman</a>
                     </li>
 					<li>
 						<a href="<?php echo site_url('Login/keluar')?>"> <i class="menu-icon fa fa fa-sign-out"></i>	Logout</a>
@@ -86,7 +86,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="header-menu">
 
                 <div class="col-sm-7">
-                    <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>
+                    <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-plus"></i></a>
                     <div class="header-left"> 
                     <h3>Dashboard</h3>
                     </div>           
@@ -106,7 +106,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <a class="btn btn-primary btn-sm" href="<?php echo site_url('crudbarang/add') ?>" ><i class="fa fa-pencil"></i> Add New</a>
                         </div>
 
-                        <div class="card-body">
+                 <div class="card-body">
                   <table id="bootstrap-data-table" class="table table-striped table-bordered">
                     <thead>
                         <tr>
@@ -131,10 +131,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<td><?php echo $br->kondisi_barang ?></td>
 						<td><?php echo $br->unit ?></td>
                         <td>
-                            <a class="btn btn-warning btn-sm" href="<?php echo site_url('crudbarang/edit/'.$br->id_barang);?>"class="btn btn-small"><i class="fa fa-edit"></i>Edit</a>
-                            <a class="btn btn-danger btn-sm" href="<?php echo site_url('#'.$br->id_barang) ?>"class="btn btn-small"><i class="fa fa-trash-o"></i>Hapus</a>
-                        </td>
-
+                            <a class="btn btn-warning btn-sm" href="<?php echo site_url('crudbarang/edit/'.$br->id_barang);?>"class="btn btn-small"><i class="fa fa-edit"></i>Edit</a>                      
+                            <a class="btn btn-danger btn-sm"  data-toggle="modal" data-target="#staticModal<?php echo $br->id_barang; ?>" class="btn btn-small"><i class="fa fa-trash-o"></i>Hapus</a>
+						</td>
 						</tr>
 						<?php } ?>
                     </thead>
@@ -142,9 +141,34 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   
                     </tbody>
                 </table>
-
-     
-
+				</div>
+				</div>
+			</div>
+		</div>
+		</div>
+	</div>
+						
+						<div class="modal fade" id="staticModal<?php echo $br->id_barang; ?>" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true" data-backdrop="static">
+							<div class="modal-dialog modal-sm" role="document">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h5 class="modal-title" id="staticModalLabel">Konfirmasi Hapus</h5>
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											<span aria-hidden="true">&times;</span>
+										</button>
+									</div>
+									<div class="modal-body">
+										<p>
+										Yakin ingin menghapus ini?
+										</p>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
+										<a type="button" class="btn btn-primary" href="<?php echo site_url('crudbarang/hapus/'.$br->id_barang); ?>">Ya, Hapus</a>
+									</div>
+								</div>
+							</div>
+						</div>
    
     <script src="<?php echo base_url('assets/js/vendor/jquery-2.1.4.min.js');?>"</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>

@@ -54,13 +54,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <li>
                         <a href="<?php echo site_url('Admin/index')?>"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
                     </li>
-                    <li class="active">
+                    <li>
                         <a href="<?php echo site_url('Crudbarang/kebarang')?>"> <i class="menu-icon fa fa-tasks"></i>Daftar Barang</a>
                     </li>
                     <li>
                         <a href="<?php echo site_url('Crudpinjambarang/kepinjambarang')?>"> <i class="menu-icon fa fa-file-o"></i>Form Peminjaman</a>
                     </li>
-					<li>
+					<li class="active">
                         <a href="<?php echo site_url('Laporanbarang/kelaporan')?>"> <i class="menu-icon fa fa-print"></i>Laporan Peminjaman</a>
                     </li>
 					<li>
@@ -86,83 +86,61 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="header-menu">
 
                 <div class="col-sm-7">
-                    <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-plus"></i></a>
+                    <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-plus"
+                    ></i></a>
                     <div class="header-left"> 
                     <h3>Dashboard</h3>
                     </div>           
         </header><!-- /header -->
         <!-- Header-->
-<div class="container">
+<!-- TABEL-->
+        <div class="content mt-3">
+            <div class="animated fadeIn">
+                <div class="row">
+
+                <div class="col-md-12">
                     <div class="card">
-                      <div class="card-header">
-                        <strong>Tambah Barang</strong>
-                      </div>
-                      <div class="card-body card-block">
-                        <?php
-                            foreach($tb_barang as $detail){
-                        ?>
-            
-                        <form action="<?php echo site_url('crudbarang/updatebarangDb'); ?>" method="post" enctype="multipart/form-data" class="form-horizontal">
-                            
-                            
-                          <div class="row form-group">
-                                <div class="col col-md-3"><label for="kd" class=" form-control-label">Kode Barang</label></div>
-                                <div class="col-12 col-md-9"><input type="text" id="kd" name="kd" value="<?php echo $detail->kode_barang; ?>" class="form-control" required></div>
-                                <div class="col-12 col-md-9"><input type="hidden" id="id" name="id" value="<?php echo $detail->id_barang; ?>" class="form-control"></div>
-                          </div>
+                        <div class="card-header">
+                            <strong class="card-title">Daftar Laporan Peminjaman</strong>
+                        </div>
+                        <!--<div class="card-header">
+                        <a class="btn btn-primary btn-sm" href="<?php echo site_url('crudbarang/add') ?>" ><i class="fa fa-pencil"></i> Add New</a>
+                        </div>-->
 
-                          <div class="row form-group">
-                               <div class="col col-md-3"><label for="nb" class=" form-control-label">Nama Barang</label></div>
-                               <div class="col-12 col-md-9"><input type="text" id="nb" name="nb" value="<?php echo $detail->nama_barang; ?>" class="form-control" required></div>
-                          </div>
+                        <div class="card-body">
+                  <table id="bootstrap-data-table" class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                       
+                        <th>No SPT</th>
+                        <th>Tanggal</th>
+                        <th>Nama 1</th>
+                        <th>Nama 2</th>
+                        <th>Nama 3</th>              
+                        <!--<th>Action</th>-->
+                        </tr>
+						<?php 
+						foreach($tbl_pinjambarang as $br){ 
+						?>
+						<tr>
+                       
+						<td><?php echo $br->no_spt ?></td>
+						<td><?php echo $br->tanggal ?></td>
+						<td><?php echo $br->nama1 ?></td>
+						<td><?php echo $br->nama2 ?></td>
+						<td><?php echo $br->nama3 ?></td>
+                        <!--<td>
+                            <a class="btn btn-warning btn-sm" href="<?php echo site_url('crudbarang/edit/'.$br->id_pb);?>"class="btn btn-small"><i class="fa fa-edit"></i>Edit</a>
+                            <a class="btn btn-danger btn-sm" href="<?php echo site_url('crudbarang/hapus/'.$br->id_pb) ?>"class="btn btn-small"><i class="fa fa-trash-o"></i>Hapus</a>
+                        </td>-->
 
-                          <div class="row form-group">
-                               <div class="col col-md-3"><label for="merk" class=" form-control-label">Merk/Type</label></div>
-                               <div class="col-12 col-md-9"><input type="text" id="merk" name="merk" value="<?php echo $detail->merk; ?>" class="form-control" required></div>
-                          </div>
-                          
-                          <div class="row form-group">
-                               <div class="col col-md-3"><label for="ns" class=" form-control-label">No Seri</label></div>
-                               <div class="col-12 col-md-9"><input type="text" id="ns" name="ns" value="<?php echo $detail->no_seri; ?>" class="form-control" required></div>       
-                          </div>
-                          
-                          <div class="row form-group"> <!--dibuat dropdown-->
-                            <div class="col col-md-3">
-                               <label class="form-control-label" for="kb">Kondisi Barang</label>
-                            </div>
-                               <div class="col-12 col-md-9">
-                                    <select id="kb" class="form-control" name="kb">
-                                    <option value="Baik">Baik</option>
-                                    <option value="Sedikit Rusak">Sedikit Rusak</option>
-                                    </select>
-                                </div>
-                          </div>
-                           
-                          <div class="row form-group">
-                            <div class="col col-md-3"><label for="unit" class=" form-control-label">Unit</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="unit" name="unit" value="<?php echo $detail->unit; ?>" class="form-control" required></div>   
-                          </div>
-
-                          <div class="row form-group">
-                          </div>
-                          
-                      </div>
-                      
-                      <div class="card-footer">
-                        <input type="submit" class="btn btn-primary btn-sm" value="Update"/>
-                          
-                        
-                        
-                        </form>
-                        <?php
-                            }
-                        ?>
-                      </div>
-                    </div>
-                   
-                     
-                    </div>
-                  </div>
+						</tr>
+						<?php } ?>
+                    </thead>
+                    <tbody>
+                  
+                    </tbody>
+                </table>
 
      
 
