@@ -28,6 +28,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 
     <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
+	<link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap-datepicker3.css')?>"/>
 
 </head>
 
@@ -44,7 +45,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <i class="fa fa-bars"></i>
                 </button>
                 <a class="navbar-brand"><img src="<?php echo base_url('assets/images/Kemkominfo.png');?>" alt="Logo"></a>
-                <a class="navbar-brand hidden"><img src="<?php echo base_url('assets/images/logo2kom.png');?>" alt="Logo"></a>
+                <a class="navbar-brand hidden" ><img src="<?php echo base_url('assets/images/logo2kom.png');?>" alt="Logo"></a>
             </div>
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
@@ -54,10 +55,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <li>
                         <a href="<?php echo site_url('Admin/index')?>"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
                     </li>
-                    <li class="active">
+                    <li>
                         <a href="<?php echo site_url('Crudbarang/kebarang')?>"> <i class="menu-icon fa fa-tasks"></i>Daftar Barang</a>
                     </li>
-                    <li>
+                    <li class="active">
                         <a href="<?php echo site_url('Crudpinjambarang/kepinjambarang')?>"> <i class="menu-icon fa fa-file-o"></i>Form Peminjaman</a>
                     </li>
 					<li>
@@ -91,40 +92,88 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <h3>Dashboard</h3>
                     </div>
 				</div>
-			</div>
+			</div>	
         </header><!-- /header -->
         <!-- Header-->
-<!-- TABEL-->
-        <div class="content mt-3">
+		<div class="container">
+			<div class="card">
+                      <div class="card-header">
+                        <strong>Form Peminjaman</strong>
+                      </div>
+                      <div class="card-body card-block">
+					  <div class="bootstrap-iso">
+                        <form action="<?php echo site_url('crudpinjambarang/cek'); ?>" method="post" enctype="multipart/form-data" class="form-horizontal">
+						<?php
+                            foreach($tbl_pinjambarang as $detail){
+                        ?>
+                          <div class="row form-group">
+                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nomor SPT</label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="nospt" name="nospt" value="<?php echo $detail->no_spt; ?>" class="form-control"></div>
+                          </div>
+						  <div class="row form-group">
+                            <div class="col col-md-3"><label for="tanggal" class=" form-control-label">Tanggal</label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="tanggal" name="tanggal" value="<?php echo $detail->tanggal; ?>" class="tanggal"></div>
+                          </div>
+						  <div class="row form-group">
+                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nama 1</label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="nama1" name="nama1" value="<?php echo $detail->nama1; ?>" class="form-control"></div>
+                          </div>
+						  <div class="row form-group">
+                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nama 2</label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="nama2" name="nama2" value="<?php echo $detail->nama2 ?>" class="form-control"></div>
+                          </div>
+						  <div class="row form-group">
+                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nama 3</label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="nama3" name="nama3" value="<?php echo $detail->nama3 ?>" class="form-control"></div>
+                          </div>
+						 
+                          <div class="row form-group">
+                            <div class="col col-md-3"><label for="select" class=" form-control-label">Barang</label></div>
+                            <div class="col-12 col-md-9">
+                              <select name="select" id="select" class="form-control">
+                                <?php foreach($tb_barang as $row) { ?>
+								<option value="<?php echo $row->id_barang ?>"><?php echo $row->nama_barang ?></option>
+								<?php } ?>
+                              </select>
+                            </div>
+                          </div>
+						  <div class="row form-group">
+                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Unit</label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="unit" name="unit" placeholder="Unit" class="form-control"></div>
+                          </div>
+						  <div class="row form-group">
+						    <div class="col col-md-3"></div>
+							<div class="col-12 col-md-9">
+							<button type="submit" class="btn btn-primary btn-sm">
+							<i class="fa fa-plus"></i> Tambah
+							</button>
+							</div>
+						  </div>						  
+					  <div class="content mt-3">
             <div class="animated fadeIn">
                 <div class="row">
 
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <strong class="card-title">Daftar Barang</strong>
+                            <strong class="card-title">Barang Pilihan</strong>
                         </div>
-                        <div class="card-header">
-                        <a class="btn btn-primary btn-sm" href="<?php echo site_url('crudbarang/add') ?>" ><i class="fa fa-pencil"></i> Add New</a>
-                        </div>
-
-                 <div class="card-body">
+                        <div class="card-body">
                   <table id="bootstrap-data-table" class="table table-striped table-bordered">
                     <thead>
                         <tr>
-                       
                         <th>Kode Barang</th>
                         <th>Nama Barang</th>
                         <th>Merk/Type</th>
                         <th>No Seri</th>
                         <th>Kondisi Barang</th>
                         <th>Unit</th>
-                        <th>Action</th>
-                        </tr>
+						<th>Action</th>
+                        </tr>						
                     </thead>
                     <tbody>
 						<?php 
-						foreach($tb_barang as $br){ 
+						foreach($view_detail as $br){ 
 						?>
 						<tr>
                        
@@ -134,23 +183,42 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<td><?php echo $br->no_seri ?></td>
 						<td><?php echo $br->kondisi_barang ?></td>
 						<td><?php echo $br->unit ?></td>
-                        <td>
-                            <a class="btn btn-warning btn-sm" href="<?php echo site_url('crudbarang/edit/'.$br->id_barang);?>"class="btn btn-small"><i class="fa fa-edit"></i>Edit</a>                      
-                            <a class="btn btn-danger btn-sm"  data-toggle="modal" data-target="#staticModal<?php echo $br->id_barang; ?>" class="btn btn-small"><i class="fa fa-trash-o"></i>Hapus</a>
+                        <td>                                
+                            <a class="btn btn-danger btn-sm" href="<?php echo site_url('crudpinjambarang/hapus/'.$br->id_barang.'/'.$br->no_spt); ?>" class="btn btn-small"><i class="fa fa-trash-o"></i>Hapus</a>
 						</td>
 						</tr>
 						<?php } ?>
                     </tbody>
                 </table>
+						</div>
+					</div>
 				</div>
 				</div>
 			</div>
 		</div>
+                      
+                   
+                     
+                    
+					</form>
+					<div class="card-footer">
+                        <button class="btn btn-primary btn-sm">
+                          <i class="fa fa-dot-circle-o"></i> Selesai
+                        </button>
+                        <button class="btn btn-danger btn-sm"  data-toggle="modal" data-target="#staticModal<?php echo $detail->no_spt; ?>" class="btn btn-small">
+                          <i class="fa fa-ban"></i> Batal
+                        </button>
+                      </div>
+					</div>
+					</div>
+			</div>
 		</div>
 	</div>
-	</div>
-						
-						<div class="modal fade" id="staticModal<?php echo $br->id_barang; ?>" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true" data-backdrop="static">
+						<?php
+                            }
+                         ?>
+     
+						<div class="modal fade" id="staticModal<?php echo $detail->no_spt; ?>" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true" data-backdrop="static">
 							<div class="modal-dialog modal-sm" role="document">
 								<div class="modal-content">
 									<div class="modal-header">
@@ -166,7 +234,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									</div>
 									<div class="modal-footer">
 										<button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
-										<a type="button" class="btn btn-primary" href="<?php echo site_url('crudbarang/hapus/'.$br->id_barang); ?>">Ya, Hapus</a>
+										<a type="button" class="btn btn-primary" href="<?php echo site_url('crudbarang/hapus/'.$detail->no_spt); ?>">Ya, Hapus</a>
 									</div>
 								</div>
 							</div>
@@ -200,6 +268,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 normalizeFunction: 'polynomial'
             } );
         } )( jQuery );
+    </script>
+	<script src="<?php echo base_url('assets/js/jquery-3.3.1.min.js');?>"></script>
+	<script src="<?php echo base_url('assets/js/bootstrap.js');?>"></script>
+    <script src="<?php echo base_url('assets/js/bootstrap-datepicker.js');?>"></script>
+    <script>
+        $(document).ready(function () {
+            $('.tanggal').datepicker({
+                format: "yyyy-mm-dd",
+                autoclose:true
+            });
+        });
     </script>
 
 </body>

@@ -10,7 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Peminjaman Barang</title>
-    <meta name="description" content="Sufee Admin - HTML5 Admin Template">
+    <meta name="description" content="Peminjaman Barang - Balai Monitoring Spektrum Frekuensi Radio Kelas II Lampung">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="shortcut icon" href="<?php echo base_url('assets/images/logosc.png')?>">
@@ -90,7 +90,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-plus"></i></a>
                     <div class="header-left"> 
                     <h3>Dashboard</h3>
-                    </div>           
+                    </div>    
+				</div>
+			</div>
         </header><!-- /header -->
         <!-- Header-->
 		<div class="container">
@@ -100,27 +102,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       </div>
                       <div class="card-body card-block">
 					  <div class="bootstrap-iso">
-                        <form action="action" method="post" enctype="multipart/form-data" class="form-horizontal">
+                        <form action="<?php echo site_url('crudpinjambarang/cek'); ?>" method="post" enctype="multipart/form-data" class="form-horizontal">
                           <div class="row form-group">
                             <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nomor SPT</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="Nomor Surat Perintah Tugas" class="form-control"></div>
+                            <div class="col-12 col-md-9"><input type="text" id="nospt" name="nospt" placeholder="Nomor Surat Perintah Tugas" class="form-control"></div>
                           </div>
 						  <div class="row form-group">
                             <div class="col col-md-3"><label for="tanggal" class=" form-control-label">Tanggal</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="tanggal" name="tanggal" placeholder="DD/MM/YYYY" class="tanggal"></div>
+                            <div class="col-12 col-md-9"><input type="text" id="tanggal" name="tanggal" placeholder="yyyy-mm-dd" class="tanggal"></div>
                           </div>
 						  <div class="row form-group">
                             <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nama 1</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="Ketua Pelaksana" class="form-control"></div>
+                            <div class="col-12 col-md-9"><input type="text" id="nama1" name="nama1" placeholder="Ketua Pelaksana" class="form-control"></div>
                           </div>
 						  <div class="row form-group">
                             <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nama 2</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="Wakil Ketua Pelaksana" class="form-control"></div>
+                            <div class="col-12 col-md-9"><input type="text" id="nama2" name="nama2" placeholder="Wakil Ketua Pelaksana" class="form-control"></div>
                           </div>
 						  <div class="row form-group">
                             <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nama 3</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="Petugas" class="form-control"></div>
-                          </div>
+                            <div class="col-12 col-md-9"><input type="text" id="nama3" name="nama3" placeholder="Petugas" class="form-control"></div>
+                          </div>						 
                           <div class="row form-group">
                             <div class="col col-md-3"><label for="select" class=" form-control-label">Barang</label></div>
                             <div class="col-12 col-md-9">
@@ -132,13 +134,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </div>
                           </div>
 						  <div class="row form-group">
+                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Unit</label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="unit" name="unit" placeholder="Unit" class="form-control"></div>
+                          </div>
+						  <div class="row form-group">
 						    <div class="col col-md-3"></div>
 							<div class="col-12 col-md-9">
 							<button type="submit" class="btn btn-primary btn-sm">
 							<i class="fa fa-plus"></i> Tambah
 							</button>
 							</div>
-						  </div>        
+						  </div>						  
 					  <div class="content mt-3">
             <div class="animated fadeIn">
                 <div class="row">
@@ -158,10 +164,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <th>No Seri</th>
                         <th>Kondisi Barang</th>
                         <th>Unit</th>
-                        </tr>
+						<th>Action</th>
+                        </tr>						
                     </thead>
                     <tbody>
-                  
+						<?php 
+						foreach($view_detail as $br){ 
+						?>
+						<tr>
+                       
+						<td><?php echo $br->kode_barang ?></td>
+						<td><?php echo $br->nama_barang ?></td>
+						<td><?php echo $br->merk ?></td>
+						<td><?php echo $br->no_seri ?></td>
+						<td><?php echo $br->kondisi_barang ?></td>
+						<td><?php echo $br->unit ?></td>
+                        <td>                                
+                            <a class="btn btn-danger btn-sm"  data-toggle="modal" data-target="#staticModal<?php echo $br->id_barang; ?>" class="btn btn-small"><i class="fa fa-trash-o"></i>Hapus</a>
+						</td>
+						</tr>
+						<?php } ?>
                     </tbody>
                 </table>
 						</div>
@@ -170,26 +192,41 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</div>
 			</div>
 		</div>
-                      <div class="card-footer">
-                        <button type="submit" class="btn btn-primary btn-sm">
-                          <i class="fa fa-dot-circle-o"></i> Simpan
-                        </button>
-                        <button type="reset" class="btn btn-danger btn-sm">
-                          <i class="fa fa-ban"></i> Reset
-                        </button>
-                      </div>
-                   
-                     
-                    
 					</form>
+					<div class="card-footer">
+                        <button class="btn btn-primary btn-sm">
+                          <i class="fa fa-dot-circle-o"></i> Selesai
+                        </button>
+                        <button class="btn btn-danger btn-sm"  data-toggle="modal" data-target="#staticModal" class="btn btn-small">
+                          <i class="fa fa-ban"></i> Batal
+                        </button>
+                     </div>
 					</div>
 					</div>
 			</div>
 		</div>
-
-     
-
-   
+   </div>
+						<div class="modal fade" id="staticModal" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true" data-backdrop="static">
+							<div class="modal-dialog modal-sm" role="document">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h5 class="modal-title" id="staticModalLabel">Konfirmasi Batal</h5>
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											<span aria-hidden="true">&times;</span>
+										</button>
+									</div>
+									<div class="modal-body">
+										<p>
+										Yakin ingin membatalkan proses ini?
+										</p>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
+										<a type="button" class="btn btn-primary" href="<?php echo site_url('crudpinjambarang/kepinjambarang'); ?>">Ya, Batal</a>
+									</div>
+								</div>
+							</div>
+						</div>
     <script src="<?php echo base_url('assets/js/vendor/jquery-2.1.4.min.js');?>"</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
     <script src="<?php echo base_url('assets/js/plugins.js');?>"></script>
@@ -225,7 +262,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <script>
         $(document).ready(function () {
             $('.tanggal').datepicker({
-                format: "dd-mm-yyyy",
+                format: "yyyy-mm-dd",
                 autoclose:true
             });
         });

@@ -9,8 +9,23 @@ class Crudpinjambarang extends CI_Controller{
 			redirect(site_url("Login/masuk"));}
 	}
 	function kepinjambarang(){
-		$data['tb_barang'] = $this->mo_pinjambarang->tampil_op();
+		$item = $this->mo_pinjambarang->item();
+		$view = $this->mo_pinjambarang->viewbarang();
+		$data['tb_barang'] = $item;
+		$data['view_detail'] = $view;
 		$this->load->view('Vi_pinjambarang', $data);
 	}
-	
+	function cek()
+	{
+		$this->mo_pinjambarang->cek_ada();
+	}
+	function hapus()
+    {
+		$id =  $this->uri->segment(3);
+		$nospt =  $this->uri->segment(4);
+        $where = array ('id_barang'=>$id, 'no_spt'=>$nospt);
+        $this->mo_pinjambarang->hapus_barang($where,'tbl_detailpb');
+		$wherespt = array('no_spt' => $nospt);
+		$this->mo_pinjambarang->tampillagi($wherespt);
+    }
 }

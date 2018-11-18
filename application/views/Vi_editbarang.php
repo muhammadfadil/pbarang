@@ -10,7 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Peminjaman Barang</title>
-    <meta name="description" content="Sufee Admin - HTML5 Admin Template">
+    <meta name="description" content="Peminjaman Barang - Balai Monitoring Spektrum Frekuensi Radio Kelas II Lampung">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="shortcut icon" href="<?php echo base_url('assets/images/logosc.png')?>">
@@ -89,7 +89,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-plus"></i></a>
                     <div class="header-left"> 
                     <h3>Dashboard</h3>
-                    </div>           
+                    </div>
+				</div>
+			</div>	
         </header><!-- /header -->
         <!-- Header-->
 <div class="container">

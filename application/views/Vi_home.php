@@ -10,7 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Peminjaman Barang</title>
-    <meta name="description" content="Peminjaman Barang">
+    <meta name="description" content="Peminjaman Barang - Balai Monitoring Spektrum Frekuensi Radio Kelas II Lampung">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="shortcut icon" href="<?php echo base_url('assets/images/logosc.png')?>">
@@ -88,7 +88,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-plus"></i></a>
                     <div class="header-left"> 
                     <h3>Dashboard</h3>
-                    </div>           
+                    </div>
+				</div>
+			</div>				
         </header>
 		<div class="container text-center">
 		
@@ -97,7 +99,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		 
      
 
-   
+    </div>
     <script src="<?php echo base_url('assets/js/vendor/jquery-2.1.4.min.js');?>"</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
     <script src="<?php echo base_url('assets/js/plugins.js');?>"></script>
