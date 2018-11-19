@@ -28,4 +28,11 @@ class Crudpinjambarang extends CI_Controller{
 		$wherespt = array('no_spt' => $nospt);
 		$this->mo_pinjambarang->tampillagi($wherespt);
     }
+	function selesai($id)
+	{
+		$where = array ('no_spt'=>$id);
+        $this->mo_pinjambarang->hapus_detail($where,'tbl_detailpb');
+		$this->mo_pinjambarang->hapus_master($where,'tbl_pinjambarang');
+        redirect('crudpinjambarang/kepinjambarang');
+	}
 }

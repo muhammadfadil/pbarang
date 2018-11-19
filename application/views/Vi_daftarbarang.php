@@ -146,10 +146,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</div>
 			</div>
 		</div>
-		</div>
-	</div>
-	</div>
-						
 						<div class="modal fade" id="staticModal<?php echo $br->id_barang; ?>" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true" data-backdrop="static">
 							<div class="modal-dialog modal-sm" role="document">
 								<div class="modal-content">
@@ -171,6 +167,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								</div>
 							</div>
 						</div>
+		</div>
+	</div>
+	</div>
+
    
     <script src="<?php echo base_url('assets/js/vendor/jquery-2.1.4.min.js');?>"</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>

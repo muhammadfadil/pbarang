@@ -194,7 +194,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</div>
 					</form>
 					<div class="card-footer">
-                        <button class="btn btn-primary btn-sm">
+                        <button class="btn btn-primary btn-sm"  data-toggle="modal" data-target="#staticModal2" class="btn btn-small">
                           <i class="fa fa-dot-circle-o"></i> Selesai
                         </button>
                         <button class="btn btn-danger btn-sm"  data-toggle="modal" data-target="#staticModal" class="btn btn-small">
@@ -227,6 +227,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								</div>
 							</div>
 						</div>
+						<div class="modal fade" id="staticModal2" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true" data-backdrop="static">
+							<div class="modal-dialog modal-sm" role="document">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h5 class="modal-title" id="staticModalLabel">Konfirmasi Selesai</h5>
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											<span aria-hidden="true">&times;</span>
+										</button>
+									</div>
+									<div class="modal-body">
+										<p>
+										Yakin ingin menyelesaikan ini?
+										</p>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
+										<a type="button" class="btn btn-primary" href="<?php echo site_url('crudpinjambarang/kepinjambarang'); ?>">Ya, Selesai</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						
     <script src="<?php echo base_url('assets/js/vendor/jquery-2.1.4.min.js');?>"</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
     <script src="<?php echo base_url('assets/js/plugins.js');?>"></script>
@@ -267,6 +289,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             });
         });
     </script>
+
 
 </body>
 

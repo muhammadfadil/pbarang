@@ -67,4 +67,14 @@ class Mo_pinjambarang extends CI_Model{
 		$data['tbl_pinjambarang'] = $this->db->get_where($this->tbl_pinjambarang, $wherespt)->result();
 		$this->load->view('Vi_pinjambarang2', $data);
 	}
+	function hapus_detail($where, $table)
+	{
+		$this->db->where($where);
+        $this->db->delete($table);
+	}
+	function hapus_master($where, $table)
+	{
+		$this->db->where($where);
+        $this->db->delete($table);
+	}
 }
