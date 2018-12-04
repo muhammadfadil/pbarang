@@ -2,7 +2,7 @@
 
 class Mo_pinjambarang extends CI_Model{
 	private $_table = "tb_barang";
-	private $view = "view_detail";
+	private $view = "view_barang";
 	private $tbl_pinjambarang = "tbl_pinjambarang";
 	function item()
 	{
@@ -10,47 +10,52 @@ class Mo_pinjambarang extends CI_Model{
 	}
 	function viewbarang()
 	{
-		$nospt = "";
-		$this->db->where('no_spt',$nospt);
+		$nopb = "";
+		$this->db->where('no_pb',$nopb);
 		return $this->db->get($this->view)->result();
 	}
     function cek_ada()
 	{
+		$nopb = $this->input->post('nopb');
 		$nospt = $this->input->post('nospt');
 		$tanggal = $this->input->post('tanggal');
 		$nama1 = $this->input->post('nama1');
 		$nama2 = $this->input->post('nama2');
-		$nama3 = $this->input->post('nama3');
+		$tujuan = $this->input->post('tujuan');
 		$select = $this->input->post('select');
 		$unit = $this->input->post('unit');
-		$this->db->where('no_spt',$nospt);
+		$keterangan = $this->input->post('keterangan');
+		$this->db->where('no_pb',$nopb);
 		$query = $this->db->get($this->tbl_pinjambarang);
 		if ($query->num_rows() > 0){
 			$data = array(
-            'no_spt' => $nospt,
+            'no_pb' => $nopb,
             'id_barang' => $select,
-            'unit' => $unit
+            'unit' => $unit,
+			'keterangan' => $keterangan
             );
             $this->db->insert('tbl_detailpb',$data);
 		}
 		else{
 			$data = array(
-            'no_spt' => $nospt,
+            'no_pb' => $nopb,
+			'no_spt' => $nospt,
             'tanggal' => $tanggal,
             'nama1' => $nama1,
             'nama2' => $nama2,
-            'nama3' => $nama3
+            'tujuan' => $tujuan
             );
             $this->db->insert($this->tbl_pinjambarang,$data);
 			$data = array(
-            'no_spt' => $nospt,
+            'no_pb' => $nopb,
             'id_barang' => $select,
-            'unit' => $unit
+            'unit' => $unit,
+			'keterangan' => $keterangan
             );
             $this->db->insert('tbl_detailpb',$data);
 		}
-		$where = array('no_spt' => $nospt);
-		$data['view_detail'] = $this->db->get_where($this->view, $where)->result();
+		$where = array('no_pb' => $nopb);
+		$data['view_barang'] = $this->db->get_where($this->view, $where)->result();
 		$data['tb_barang'] = $this->db->get($this->_table)->result();
 		$data['tbl_pinjambarang'] = $this->db->get_where($this->tbl_pinjambarang, $where)->result();
 		$this->load->view('Vi_pinjambarang2', $data);
@@ -62,7 +67,7 @@ class Mo_pinjambarang extends CI_Model{
 	}
 	function tampillagi($wherespt)
 	{
-		$data['view_detail'] = $this->db->get_where($this->view, $wherespt)->result();
+		$data['view_barang'] = $this->db->get_where($this->view, $wherespt)->result();
 		$data['tb_barang'] = $this->db->get($this->_table)->result();
 		$data['tbl_pinjambarang'] = $this->db->get_where($this->tbl_pinjambarang, $wherespt)->result();
 		$this->load->view('Vi_pinjambarang2', $data);

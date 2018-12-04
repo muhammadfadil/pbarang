@@ -44,7 +44,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <i class="fa fa-bars"></i>
                 </button>
                 <a class="navbar-brand"><img src="<?php echo base_url('assets/images/Kemkominfo.png');?>" alt="Logo"></a>
-                <a class="navbar-brand hidden"><img src="<?php echo base_url('assets/images/logo2kom.png');?>" alt="Logo"></a>
+                <a class="navbar-brand hidden"><img src="<?php echo base_url('assets/images/logosc.png');?>" alt="Logo"></a>
             </div>
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">

@@ -44,7 +44,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <i class="fa fa-bars"></i>
                 </button>
                 <a class="navbar-brand"><img src="<?php echo base_url('assets/images/Kemkominfo.png');?>" alt="Logo"></a>
-                <a class="navbar-brand hidden"><img src="<?php echo base_url('assets/images/logo2kom.png');?>" alt="Logo"></a>
+                <a class="navbar-brand hidden"><img src="<?php echo base_url('assets/images/logosc.png.png');?>" alt="Logo"></a>
             </div>
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
@@ -136,7 +136,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                            
                           <div class="row form-group">
                             <div class="col col-md-3"><label for="unit" class=" form-control-label">Unit</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="unit" name="unit" placeholder="Unit" class="form-control" required></div>   
+                            <div class="col-12 col-md-9"><input type="number" min="1" id="unit" name="unit" placeholder="Unit" class="form-control" required></div>   
                           </div>
 
                           <div class="row form-group">
@@ -146,11 +146,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       
                       <div class="card-footer">
                         <input type="submit" class="btn btn-primary btn-sm" name="save" value="Save"/>
-                          
-                        
-                        
-                        </form>
+                        <a class="btn btn-secondary btn-sm" href="<?php echo site_url('Crudbarang/kebarang')?>" role="button">Kembali</a>                                                                       
                       </div>
+					  </form>
                     </div>
                    
                      

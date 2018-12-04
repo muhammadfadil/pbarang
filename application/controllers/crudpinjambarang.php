@@ -12,7 +12,7 @@ class Crudpinjambarang extends CI_Controller{
 		$item = $this->mo_pinjambarang->item();
 		$view = $this->mo_pinjambarang->viewbarang();
 		$data['tb_barang'] = $item;
-		$data['view_detail'] = $view;
+		$data['view_barang'] = $view;
 		$this->load->view('Vi_pinjambarang', $data);
 	}
 	function cek()
@@ -22,15 +22,15 @@ class Crudpinjambarang extends CI_Controller{
 	function hapus()
     {
 		$id =  $this->uri->segment(3);
-		$nospt =  $this->uri->segment(4);
-        $where = array ('id_barang'=>$id, 'no_spt'=>$nospt);
+		$nopb =  $this->uri->segment(4);
+        $where = array ('id_barang'=>$id, 'no_pb'=>$nopb);
         $this->mo_pinjambarang->hapus_barang($where,'tbl_detailpb');
-		$wherespt = array('no_spt' => $nospt);
+		$wherespt = array('no_pb' => $nopb);
 		$this->mo_pinjambarang->tampillagi($wherespt);
     }
 	function selesai($id)
 	{
-		$where = array ('no_spt'=>$id);
+		$where = array ('no_pb'=>$id);
         $this->mo_pinjambarang->hapus_detail($where,'tbl_detailpb');
 		$this->mo_pinjambarang->hapus_master($where,'tbl_pinjambarang');
         redirect('crudpinjambarang/kepinjambarang');

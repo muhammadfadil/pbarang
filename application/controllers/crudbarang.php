@@ -68,8 +68,7 @@ class Crudbarang extends CI_Controller{
 
     function hapus($id)
     {
-        $where = array ('id_barang'=>$id
-            );
+        $where = array ('id_barang'=>$id);
         $this->mo_barang->hapus_barang($where,'tb_barang');
         redirect('crudbarang/kebarang');   
     }

@@ -44,7 +44,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <i class="fa fa-bars"></i>
                 </button>
                 <a class="navbar-brand"><img src="<?php echo base_url('assets/images/Kemkominfo.png');?>" alt="Logo"></a>
-                <a class="navbar-brand hidden"><img src="<?php echo base_url('assets/images/logo2kom.png');?>" alt="Logo"></a>
+                <a class="navbar-brand hidden"><img src="<?php echo base_url('assets/images/logosc.png');?>" alt="Logo"></a>
             </div>
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
@@ -113,13 +113,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <table id="bootstrap-data-table" class="table table-striped table-bordered">
                     <thead>
                         <tr>
-                       
+                        <th>No Peminjaman</th>
                         <th>No SPT</th>
                         <th>Tanggal</th>
-                        <th>Nama 1</th>
-                        <th>Nama 2</th>
-                        <th>Nama 3</th>              
-                        <!--<th>Action</th>-->
+                        <th>Pihak Pertama</th>
+                        <th>Pihak Kedua</th>
+                        <th>Tujuan</th>              
+                        <th>Action</th>
                         </tr>
 						
                     </thead>
@@ -128,16 +128,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						foreach($tbl_pinjambarang as $br){ 
 						?>
 						<tr>
-                       
+                        <td><?php echo $br->no_pb ?></td>
 						<td><?php echo $br->no_spt ?></td>
 						<td><?php echo $br->tanggal ?></td>
 						<td><?php echo $br->nama1 ?></td>
 						<td><?php echo $br->nama2 ?></td>
-						<td><?php echo $br->nama3 ?></td>
-                        <!--<td>
-                            <a class="btn btn-warning btn-sm" href="<?php echo site_url('crudbarang/edit/'.$br->id_pb);?>"class="btn btn-small"><i class="fa fa-edit"></i>Edit</a>
-                            <a class="btn btn-danger btn-sm" href="<?php echo site_url('crudbarang/hapus/'.$br->id_pb) ?>"class="btn btn-small"><i class="fa fa-trash-o"></i>Hapus</a>
-                        </td>-->
+						<td><?php echo $br->tujuan ?></td>
+                        <td>
+                            <a class="btn btn-warning btn-sm" href="<?php echo site_url('laporanbarang/cetak/'.$br->no_pb);?>"class="btn btn-small" target="_blank"><i class="fa fa-edit" ></i>Cetak</a>
+                            <!--<a class="btn btn-danger btn-sm" href="<?php echo site_url('crudbarang/hapus/'.$br->id_pb) ?>"class="btn btn-small"><i class="fa fa-trash-o"></i>Hapus</a>-->
+                        </td>
 
 						</tr>
 						<?php } ?>

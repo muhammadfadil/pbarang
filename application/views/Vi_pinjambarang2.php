@@ -53,19 +53,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <ul class="nav navbar-nav">
                     <h3 class="menu-title">Menu</h3><!-- /.menu-title -->
                     <li>
-                        <a href="<?php echo site_url('Admin/index')?>"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
+                        <a data-toggle="modal" data-target="#staticModalhome" href="#"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
                     </li>
                     <li>
-                        <a href="<?php echo site_url('Crudbarang/kebarang')?>"> <i class="menu-icon fa fa-tasks"></i>Daftar Barang</a>
+                        <a data-toggle="modal" data-target="#staticModaldaftar" href="#"> <i class="menu-icon fa fa-tasks"></i>Daftar Barang</a>
                     </li>
                     <li class="active">
-                        <a href="<?php echo site_url('Crudpinjambarang/kepinjambarang')?>"> <i class="menu-icon fa fa-file-o"></i>Form Peminjaman</a>
+                        <a href="#"> <i class="menu-icon fa fa-file-o"></i>Form Peminjaman</a>
                     </li>
 					<li>
-                        <a href="<?php echo site_url('Laporanbarang/kelaporan')?>"> <i class="menu-icon fa fa-print"></i>Laporan Peminjaman</a>
+                        <a data-toggle="modal" data-target="#staticModallaporan" href="#"> <i class="menu-icon fa fa-print"></i>Laporan Peminjaman</a>
                     </li>
 					<li>
-						<a href="<?php echo site_url('Login/keluar')?>"> <i class="menu-icon fa fa fa-sign-out"></i>	Logout</a>
+						<a data-toggle="modal" data-target="#staticModalkeluar" href="#"> <i class="menu-icon fa fa fa-sign-out"></i>	Logout</a>
 					</li>
                     
 					</li>
@@ -106,27 +106,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<?php
                             foreach($tbl_pinjambarang as $detail){
                         ?>
+						  <div class="row form-group">
+                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nomor Peminjaman</label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="nopb" name="nopb" value="<?php echo $detail->no_pb; ?>" class="form-control" required></div>
+                          </div>
                           <div class="row form-group">
                             <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nomor SPT</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="nospt" name="nospt" value="<?php echo $detail->no_spt; ?>" class="form-control"></div>
+                            <div class="col-12 col-md-9"><input type="text" id="nospt" name="nospt" value="<?php echo $detail->no_spt; ?>" class="form-control" required></div>
                           </div>
 						  <div class="row form-group">
                             <div class="col col-md-3"><label for="tanggal" class=" form-control-label">Tanggal</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="tanggal" name="tanggal" value="<?php echo $detail->tanggal; ?>" class="tanggal"></div>
+                            <div class="col-12 col-md-9"><input type="text" id="tanggal" name="tanggal" value="<?php echo $detail->tanggal; ?>" class="tanggal" required></div>
                           </div>
 						  <div class="row form-group">
                             <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nama 1</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="nama1" name="nama1" value="<?php echo $detail->nama1; ?>" class="form-control"></div>
+                            <div class="col-12 col-md-9"><input type="text" id="nama1" name="nama1" value="<?php echo $detail->nama1; ?>" class="form-control" required></div>
                           </div>
 						  <div class="row form-group">
                             <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nama 2</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="nama2" name="nama2" value="<?php echo $detail->nama2 ?>" class="form-control"></div>
+                            <div class="col-12 col-md-9"><input type="text" id="nama2" name="nama2" value="<?php echo $detail->nama2; ?>" class="form-control" required></div>
                           </div>
 						  <div class="row form-group">
-                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nama 3</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="nama3" name="nama3" value="<?php echo $detail->nama3 ?>" class="form-control"></div>
-                          </div>
-						 
+                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Tujuan</label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="nama3" name="nama3" value="<?php echo $detail->tujuan; ?>" class="form-control" required></div>
+                          </div>						
                           <div class="row form-group">
                             <div class="col col-md-3"><label for="select" class=" form-control-label">Barang</label></div>
                             <div class="col-12 col-md-9">
@@ -139,7 +142,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                           </div>
 						  <div class="row form-group">
                             <div class="col col-md-3"><label for="text-input" class=" form-control-label">Unit</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="unit" name="unit" placeholder="Unit" class="form-control"></div>
+                            <div class="col-12 col-md-9"><input type="number" min="0" id="unit" name="unit" placeholder="Unit" class="form-control" required></div>
+                          </div>
+						  <div class="row form-group">
+                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Keterangan</label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="keterangan" name="keterangan" placeholder="Keterangan" class="form-control"></div>
                           </div>
 						  <div class="row form-group">
 						    <div class="col col-md-3"></div>
@@ -168,12 +175,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <th>No Seri</th>
                         <th>Kondisi Barang</th>
                         <th>Unit</th>
+						<th>Keterangan</th>
 						<th>Action</th>
                         </tr>						
                     </thead>
                     <tbody>
 						<?php 
-						foreach($view_detail as $br){ 
+						foreach($view_barang as $br){ 
 						?>
 						<tr>
                        
@@ -183,8 +191,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<td><?php echo $br->no_seri ?></td>
 						<td><?php echo $br->kondisi_barang ?></td>
 						<td><?php echo $br->unit ?></td>
+						<td><?php echo $br->keterangan ?></td>
                         <td>                                
-                            <a class="btn btn-danger btn-sm" href="<?php echo site_url('crudpinjambarang/hapus/'.$br->id_barang.'/'.$br->no_spt); ?>" class="btn btn-small"><i class="fa fa-trash-o"></i>Hapus</a>
+                            <a class="btn btn-danger btn-sm" href="<?php echo site_url('crudpinjambarang/hapus/'.$br->id_barang.'/'.$br->no_pb); ?>" class="btn btn-small"><i class="fa fa-trash-o"></i>Hapus</a>
 						</td>
 						</tr>
 						<?php } ?>
@@ -205,7 +214,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <button class="btn btn-primary btn-sm"  data-toggle="modal" data-target="#staticModal2" class="btn btn-small">
                           <i class="fa fa-dot-circle-o"></i> Selesai
                         </button>
-                        <button class="btn btn-danger btn-sm"  data-toggle="modal" data-target="#staticModal<?php echo $detail->no_spt; ?>" class="btn btn-small">
+                        <button class="btn btn-danger btn-sm"  data-toggle="modal" data-target="#staticModal<?php echo $detail->no_pb; ?>" class="btn btn-small">
                           <i class="fa fa-ban"></i> Batal
                         </button>
                       </div>
@@ -239,7 +248,91 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								</div>
 							</div>
 						</div>
-						<div class="modal fade" id="staticModal<?php echo $detail->no_spt; ?>" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true" data-backdrop="static">
+						<div class="modal fade" id="staticModalhome" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true" data-backdrop="static">
+							<div class="modal-dialog modal-sm" role="document">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h5 class="modal-title" id="staticModalLabel">Konfirmasi</h5>
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											<span aria-hidden="true">&times;</span>
+										</button>
+									</div>
+									<div class="modal-body">
+										<p>
+										Data akan otomatis tersimpan. ingin pindah halaman?
+										</p>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
+										<a type="button" class="btn btn-primary" href="<?php echo site_url('Admin/index'); ?>">Ya, pindah</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="modal fade" id="staticModaldaftar" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true" data-backdrop="static">
+							<div class="modal-dialog modal-sm" role="document">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h5 class="modal-title" id="staticModalLabel">Konfirmasi</h5>
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											<span aria-hidden="true">&times;</span>
+										</button>
+									</div>
+									<div class="modal-body">
+										<p>
+										Data akan otomatis tersimpan. ingin pindah halaman?
+										</p>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
+										<a type="button" class="btn btn-primary" href="<?php echo site_url('Crudbarang/kebarang'); ?>">Ya, pindah</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="modal fade" id="staticModallaporan" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true" data-backdrop="static">
+							<div class="modal-dialog modal-sm" role="document">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h5 class="modal-title" id="staticModalLabel">Konfirmasi</h5>
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											<span aria-hidden="true">&times;</span>
+										</button>
+									</div>
+									<div class="modal-body">
+										<p>
+										Data akan otomatis tersimpan. ingin pindah halaman?
+										</p>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
+										<a type="button" class="btn btn-primary" href="<?php echo site_url('Laporanbarang/kelaporan'); ?>">Ya, pindah</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="modal fade" id="staticModalkeluar" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true" data-backdrop="static">
+							<div class="modal-dialog modal-sm" role="document">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h5 class="modal-title" id="staticModalLabel">Konfirmasi</h5>
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											<span aria-hidden="true">&times;</span>
+										</button>
+									</div>
+									<div class="modal-body">
+										<p>
+										Data akan otomatis tersimpan. ingin keluar?
+										</p>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
+										<a type="button" class="btn btn-primary" href="<?php echo site_url('Login/keluar'); ?>">Ya, keluar</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="modal fade" id="staticModal<?php echo $detail->no_pb; ?>" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true" data-backdrop="static">
 							<div class="modal-dialog modal-sm" role="document">
 								<div class="modal-content">
 									<div class="modal-header">
@@ -255,7 +348,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									</div>
 									<div class="modal-footer">
 										<button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
-										<a type="button" class="btn btn-primary" href="<?php echo site_url('crudpinjambarang/selesai/'.$detail->no_spt); ?>">Ya, Batal</a>
+										<a type="button" class="btn btn-primary" href="<?php echo site_url('crudpinjambarang/selesai/'.$detail->no_pb); ?>">Ya, Batal</a>
 									</div>
 								</div>
 							</div>

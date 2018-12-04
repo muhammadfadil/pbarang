@@ -45,7 +45,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <i class="fa fa-bars"></i>
                 </button>
                 <a class="navbar-brand"><img src="<?php echo base_url('assets/images/Kemkominfo.png');?>" alt="Logo"></a>
-                <a class="navbar-brand hidden" ><img src="<?php echo base_url('assets/images/logo2kom.png');?>" alt="Logo"></a>
+                <a class="navbar-brand hidden" ><img src="<?php echo base_url('assets/images/logosc.png');?>" alt="Logo"></a>
             </div>
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
@@ -103,25 +103,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       <div class="card-body card-block">
 					  <div class="bootstrap-iso">
                         <form action="<?php echo site_url('crudpinjambarang/cek'); ?>" method="post" enctype="multipart/form-data" class="form-horizontal">
+							<div class="row form-group">
+                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nomor Peminjaman</label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="nopb" name="nopb" placeholder="Nomor Peminjaman Barang" class="form-control" required></div>
+                          </div>
                           <div class="row form-group">
                             <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nomor SPT</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="nospt" name="nospt" placeholder="Nomor Surat Perintah Tugas" class="form-control"></div>
+                            <div class="col-12 col-md-9"><input type="text" id="nospt" name="nospt" placeholder="Nomor Surat Perintah Tugas" class="form-control" required></div>
                           </div>
 						  <div class="row form-group">
                             <div class="col col-md-3"><label for="tanggal" class=" form-control-label">Tanggal</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="tanggal" name="tanggal" placeholder="yyyy-mm-dd" class="tanggal"></div>
+                            <div class="col-12 col-md-9"><input type="text" id="tanggal" name="tanggal" placeholder="yyyy-mm-dd" class="tanggal" required></div>
                           </div>
 						  <div class="row form-group">
                             <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nama 1</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="nama1" name="nama1" placeholder="Ketua Pelaksana" class="form-control"></div>
+                            <div class="col-12 col-md-9"><input type="text" id="nama1" name="nama1" placeholder="Pihak Pertama" class="form-control" required></div>
                           </div>
 						  <div class="row form-group">
                             <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nama 2</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="nama2" name="nama2" placeholder="Wakil Ketua Pelaksana" class="form-control"></div>
+                            <div class="col-12 col-md-9"><input type="text" id="nama2" name="nama2" placeholder="Pihak Kedua" class="form-control" required></div>
                           </div>
 						  <div class="row form-group">
-                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nama 3</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="nama3" name="nama3" placeholder="Petugas" class="form-control"></div>
+                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Tujuan</label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="tujuan" name="tujuan" placeholder="Tujuan Peminjaman" class="form-control" required></div>
                           </div>						 
                           <div class="row form-group">
                             <div class="col col-md-3"><label for="select" class=" form-control-label">Barang</label></div>
@@ -135,7 +139,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                           </div>
 						  <div class="row form-group">
                             <div class="col col-md-3"><label for="text-input" class=" form-control-label">Unit</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="unit" name="unit" placeholder="Unit" class="form-control"></div>
+                            <div class="col-12 col-md-9"><input type="number" min="0" id="unit" name="unit" placeholder="Unit" class="form-control" required></div>
+                          </div>
+						  <div class="row form-group">
+                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Keterangan</label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="keterangan" name="keterangan" placeholder="Keterangan" class="form-control"></div>
                           </div>
 						  <div class="row form-group">
 						    <div class="col col-md-3"></div>
@@ -164,12 +172,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <th>No Seri</th>
                         <th>Kondisi Barang</th>
                         <th>Unit</th>
+						<th>Keterangan</th>
 						<th>Action</th>
                         </tr>						
                     </thead>
                     <tbody>
 						<?php 
-						foreach($view_detail as $br){ 
+						foreach($view_barang as $br){ 
 						?>
 						<tr>
                        
@@ -179,6 +188,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<td><?php echo $br->no_seri ?></td>
 						<td><?php echo $br->kondisi_barang ?></td>
 						<td><?php echo $br->unit ?></td>
+						<td><?php echo $br->keterangan ?></td>
                         <td>                                
                             <a class="btn btn-danger btn-sm"  data-toggle="modal" data-target="#staticModal<?php echo $br->id_barang; ?>" class="btn btn-small"><i class="fa fa-trash-o"></i>Hapus</a>
 						</td>
