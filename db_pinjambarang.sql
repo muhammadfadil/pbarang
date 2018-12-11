@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 19 Nov 2018 pada 01.58
+-- Generation Time: 11 Des 2018 pada 11.36
 -- Versi Server: 5.6.20
 -- PHP Version: 5.5.15
 
@@ -27,18 +27,11 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `tbl_detailpb` (
-  `no_spt` varchar(10) NOT NULL,
+  `id_pb` int(11) NOT NULL,
   `id_barang` int(11) NOT NULL,
-  `unit` int(11) NOT NULL
+  `unit` int(11) NOT NULL,
+  `keterangan` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `tbl_detailpb`
---
-
-INSERT INTO `tbl_detailpb` (`no_spt`, `id_barang`, `unit`) VALUES
-('1234567891', 2, 1),
-('1234567890', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -66,20 +59,14 @@ INSERT INTO `tbl_login` (`id`, `username`, `password`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `tbl_pinjambarang` (
-  `no_spt` varchar(10) NOT NULL,
+`id_pb` int(11) NOT NULL,
+  `no_pb` varchar(50) NOT NULL,
+  `no_spt` varchar(50) NOT NULL,
   `tanggal` date NOT NULL,
   `nama1` varchar(30) NOT NULL,
   `nama2` varchar(30) NOT NULL,
-  `nama3` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `tbl_pinjambarang`
---
-
-INSERT INTO `tbl_pinjambarang` (`no_spt`, `tanggal`, `nama1`, `nama2`, `nama3`) VALUES
-('1234567890', '2018-11-30', 'siti', 'surti', 'lucky'),
-('1234567891', '2018-11-30', 'siti', 'surti', 'lucky');
+  `tujuan` text NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 -- --------------------------------------------------------
 
@@ -102,7 +89,7 @@ CREATE TABLE IF NOT EXISTS `tb_barang` (
 --
 
 INSERT INTO `tb_barang` (`id_barang`, `kode_barang`, `nama_barang`, `merk`, `no_seri`, `kondisi_barang`, `unit`) VALUES
-(1, '30303010437-', 'spektrum analyzer', 'anritsu ms 2720t', '1536028', 'Baik', 1),
+(1, '3060324005-', 'spektrum analyzer', 'anritsu ms 2720t', '1536028', 'Baik', 1),
 (2, '3060324005', 'antena dipole', 'anritsu mp534b', '', 'baik', 1),
 (3, NULL, 'gps garmin', 'montana 680', '30303010726', 'baik', 1),
 (4, NULL, 'kabel 10 meter', '', NULL, 'baik', 1);
@@ -110,10 +97,10 @@ INSERT INTO `tb_barang` (`id_barang`, `kode_barang`, `nama_barang`, `merk`, `no_
 -- --------------------------------------------------------
 
 --
--- Stand-in structure for view `view_detail`
+-- Stand-in structure for view `view_barang`
 --
-CREATE TABLE IF NOT EXISTS `view_detail` (
-`no_spt` varchar(10)
+CREATE TABLE IF NOT EXISTS `view_barang` (
+`id_pb` int(11)
 ,`id_barang` int(11)
 ,`kode_barang` varchar(50)
 ,`nama_barang` varchar(50)
@@ -121,15 +108,16 @@ CREATE TABLE IF NOT EXISTS `view_detail` (
 ,`no_seri` varchar(50)
 ,`kondisi_barang` varchar(50)
 ,`unit` int(11)
+,`keterangan` varchar(30)
 );
 -- --------------------------------------------------------
 
 --
--- Struktur untuk view `view_detail`
+-- Struktur untuk view `view_barang`
 --
-DROP TABLE IF EXISTS `view_detail`;
+DROP TABLE IF EXISTS `view_barang`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_detail` AS select `a1`.`no_spt` AS `no_spt`,`a1`.`id_barang` AS `id_barang`,`a2`.`kode_barang` AS `kode_barang`,`a2`.`nama_barang` AS `nama_barang`,`a2`.`merk` AS `merk`,`a2`.`no_seri` AS `no_seri`,`a2`.`kondisi_barang` AS `kondisi_barang`,`a1`.`unit` AS `unit` from (`tbl_detailpb` `a1` join `tb_barang` `a2`) where (`a1`.`id_barang` = `a2`.`id_barang`);
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_barang` AS select `a`.`id_pb` AS `id_pb`,`a`.`id_barang` AS `id_barang`,`b`.`kode_barang` AS `kode_barang`,`b`.`nama_barang` AS `nama_barang`,`b`.`merk` AS `merk`,`b`.`no_seri` AS `no_seri`,`b`.`kondisi_barang` AS `kondisi_barang`,`a`.`unit` AS `unit`,`a`.`keterangan` AS `keterangan` from (`tbl_detailpb` `a` join `tb_barang` `b`) where (`a`.`id_barang` = `b`.`id_barang`);
 
 --
 -- Indexes for dumped tables
@@ -139,7 +127,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- Indexes for table `tbl_detailpb`
 --
 ALTER TABLE `tbl_detailpb`
- ADD KEY `id_barang` (`id_barang`), ADD KEY `no_spt` (`no_spt`);
+ ADD KEY `id_barang` (`id_barang`), ADD KEY `no_pb` (`id_pb`), ADD KEY `no_pb_2` (`id_pb`);
 
 --
 -- Indexes for table `tbl_login`
@@ -151,7 +139,7 @@ ALTER TABLE `tbl_login`
 -- Indexes for table `tbl_pinjambarang`
 --
 ALTER TABLE `tbl_pinjambarang`
- ADD PRIMARY KEY (`no_spt`), ADD KEY `no_spt` (`no_spt`);
+ ADD PRIMARY KEY (`id_pb`), ADD KEY `no_spt` (`no_spt`);
 
 --
 -- Indexes for table `tb_barang`
@@ -169,6 +157,11 @@ ALTER TABLE `tb_barang`
 ALTER TABLE `tbl_login`
 MODIFY `id` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
+-- AUTO_INCREMENT for table `tbl_pinjambarang`
+--
+ALTER TABLE `tbl_pinjambarang`
+MODIFY `id_pb` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+--
 -- AUTO_INCREMENT for table `tb_barang`
 --
 ALTER TABLE `tb_barang`
@@ -182,7 +175,7 @@ MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 ALTER TABLE `tbl_detailpb`
 ADD CONSTRAINT `tbl_detailpb_ibfk_2` FOREIGN KEY (`id_barang`) REFERENCES `tb_barang` (`id_barang`),
-ADD CONSTRAINT `tbl_detailpb_ibfk_3` FOREIGN KEY (`no_spt`) REFERENCES `tbl_pinjambarang` (`no_spt`);
+ADD CONSTRAINT `tbl_detailpb_ibfk_3` FOREIGN KEY (`id_pb`) REFERENCES `tbl_pinjambarang` (`id_pb`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

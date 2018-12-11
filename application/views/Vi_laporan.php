@@ -135,7 +135,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<td><?php echo $br->nama2 ?></td>
 						<td><?php echo $br->tujuan ?></td>
                         <td>
-                            <a class="btn btn-warning btn-sm" href="<?php echo site_url('laporanbarang/cetak/'.$br->no_pb);?>"class="btn btn-small" target="_blank"><i class="fa fa-edit" ></i>Cetak</a>
+                            <a class="btn btn-warning btn-sm" href="<?php echo site_url('laporanbarang/cetak/'.$br->id_pb);?>"class="btn btn-small" target="_blank"><i class="fa fa-print" ></i>Cetak</a>
                             <!--<a class="btn btn-danger btn-sm" href="<?php echo site_url('crudbarang/hapus/'.$br->id_pb) ?>"class="btn btn-small"><i class="fa fa-trash-o"></i>Hapus</a>-->
                         </td>
 

@@ -14,7 +14,7 @@ class Laporanbarang extends CI_Controller{
 		$this->load->view('Vi_laporan', $data);
 	}
 	function cetak($id){
-		$where = array('no_pb' => $id);
+		$where = array('id_pb' => $id);
 		$data['view_Mlaporan'] = $this->mo_laporan->cetak_laporan($where,'tbl_pinjambarang')->result();
 		$data['view_Dlaporan'] = $this->mo_laporan->cetak_laporan($where,'view_barang')->result();
 		$this->load->view('PrintLaporan', $data);

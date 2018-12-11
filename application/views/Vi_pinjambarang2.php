@@ -102,34 +102,36 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       </div>
                       <div class="card-body card-block">
 					  <div class="bootstrap-iso">
-                        <form action="<?php echo site_url('crudpinjambarang/cek'); ?>" method="post" enctype="multipart/form-data" class="form-horizontal">
+                        <form action="<?php echo site_url('crudpinjambarang/todetail'); ?>" method="post" enctype="multipart/form-data" class="form-horizontal">
 						<?php
                             foreach($tbl_pinjambarang as $detail){
                         ?>
 						  <div class="row form-group">
                             <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nomor Peminjaman</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="nopb" name="nopb" value="<?php echo $detail->no_pb; ?>" class="form-control" required></div>
+                            <div class="col-12 col-md-9"><input type="text" value="<?php echo $detail->no_pb; ?>" disabled="" class="form-control" required></div>
+							<div class="col-12 col-md-9"><input type="hidden" id="idpb" name="idpb" value="<?php echo $detail->id_pb; ?>" class="form-control" ></div>							
                           </div>
                           <div class="row form-group">
                             <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nomor SPT</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="nospt" name="nospt" value="<?php echo $detail->no_spt; ?>" class="form-control" required></div>
+                            <div class="col-12 col-md-9"><input type="text" id="nospt" name="nospt" value="<?php echo $detail->no_spt; ?>" disabled="" class="form-control" required></div>
                           </div>
 						  <div class="row form-group">
                             <div class="col col-md-3"><label for="tanggal" class=" form-control-label">Tanggal</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="tanggal" name="tanggal" value="<?php echo $detail->tanggal; ?>" class="tanggal" required></div>
+                            <div class="col-12 col-md-9"><input type="text" id="tanggal" name="tanggal" value="<?php echo $detail->tanggal; ?>" disabled="" class="tanggal" required></div>
                           </div>
 						  <div class="row form-group">
                             <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nama 1</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="nama1" name="nama1" value="<?php echo $detail->nama1; ?>" class="form-control" required></div>
+                            <div class="col-12 col-md-9"><input type="text" id="nama1" name="nama1" value="<?php echo $detail->nama1; ?>" disabled="" class="form-control" required></div>
                           </div>
 						  <div class="row form-group">
                             <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nama 2</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="nama2" name="nama2" value="<?php echo $detail->nama2; ?>" class="form-control" required></div>
+                            <div class="col-12 col-md-9"><input type="text" id="nama2" name="nama2" value="<?php echo $detail->nama2; ?>" disabled="" class="form-control" required></div>
                           </div>
 						  <div class="row form-group">
                             <div class="col col-md-3"><label for="text-input" class=" form-control-label">Tujuan</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="nama3" name="nama3" value="<?php echo $detail->tujuan; ?>" class="form-control" required></div>
-                          </div>						
+                            <div class="col-12 col-md-9"><input type="text" id="nama3" name="nama3" value="<?php echo $detail->tujuan; ?>" disabled="" class="form-control" required></div>
+                          </div>
+		<div class="animated fadeIn">
                           <div class="row form-group">
                             <div class="col col-md-3"><label for="select" class=" form-control-label">Barang</label></div>
                             <div class="col-12 col-md-9">
@@ -157,7 +159,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							</div>
 						  </div>						  
 					  <div class="content mt-3">
-            <div class="animated fadeIn">
+            
                 <div class="row">
 
                 <div class="col-md-12">
@@ -193,7 +195,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<td><?php echo $br->unit ?></td>
 						<td><?php echo $br->keterangan ?></td>
                         <td>                                
-                            <a class="btn btn-danger btn-sm" href="<?php echo site_url('crudpinjambarang/hapus/'.$br->id_barang.'/'.$br->no_pb); ?>" class="btn btn-small"><i class="fa fa-trash-o"></i>Hapus</a>
+                            <a class="btn btn-danger btn-sm" href="<?php echo site_url('crudpinjambarang/hapus/'.$br->id_barang.'/'.$br->id_pb); ?>" class="btn btn-small"><i class="fa fa-trash-o"></i>Hapus</a>
 						</td>
 						</tr>
 						<?php } ?>
@@ -214,7 +216,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <button class="btn btn-primary btn-sm"  data-toggle="modal" data-target="#staticModal2" class="btn btn-small">
                           <i class="fa fa-dot-circle-o"></i> Selesai
                         </button>
-                        <button class="btn btn-danger btn-sm"  data-toggle="modal" data-target="#staticModal<?php echo $detail->no_pb; ?>" class="btn btn-small">
+                        <button class="btn btn-danger btn-sm"  data-toggle="modal" data-target="#staticModal<?php echo $detail->id_pb; ?>" class="btn btn-small">
                           <i class="fa fa-ban"></i> Batal
                         </button>
                       </div>
@@ -332,7 +334,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								</div>
 							</div>
 						</div>
-						<div class="modal fade" id="staticModal<?php echo $detail->no_pb; ?>" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true" data-backdrop="static">
+						<div class="modal fade" id="staticModal<?php echo $detail->id_pb; ?>" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true" data-backdrop="static">
 							<div class="modal-dialog modal-sm" role="document">
 								<div class="modal-content">
 									<div class="modal-header">
@@ -348,7 +350,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									</div>
 									<div class="modal-footer">
 										<button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
-										<a type="button" class="btn btn-primary" href="<?php echo site_url('crudpinjambarang/selesai/'.$detail->no_pb); ?>">Ya, Batal</a>
+										<a type="button" class="btn btn-primary" href="<?php echo site_url('crudpinjambarang/hapusall/'.$detail->id_pb); ?>">Ya, Batal</a>
 									</div>
 								</div>
 							</div>
